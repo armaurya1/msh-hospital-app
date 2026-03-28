@@ -1,4 +1,6 @@
+import { Redirect } from 'expo-router';
 import * as Device from 'expo-device';
+import { useState } from 'react';
 import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -29,6 +31,14 @@ function getDevMenuHint() {
 }
 
 export default function HomeScreen() {
+  // For demo purposes - redirect to login
+  // In production, check auth state here
+  const [isAuthenticated] = useState(false);
+
+  if (!isAuthenticated) {
+    return <Redirect href="/(auth)/login" />;
+  }
+
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
