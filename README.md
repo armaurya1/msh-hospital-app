@@ -24,7 +24,7 @@ A professional React Native mobile application for MSH Hospital, built with Expo
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/armaurya1/msh-hospital-app
    cd my-app
    ```
 
