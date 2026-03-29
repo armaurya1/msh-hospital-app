@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cart - MED_MONOLITH</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed": "#231141",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#eaddff",
+              "on-primary-fixed": "#24005a",
+              "secondary-fixed": "#eaddff",
+              "primary": "#6547a4",
+              "inverse-on-surface": "#f2eff7",
+              "surface-variant": "#e4e1e9",
+              "on-error-container": "#93000a",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#fdf5ff",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-fixed-variant": "#503d6f",
+              "on-secondary-fixed": "#1f1730",
+              "on-surface-variant": "#494551",
+              "inverse-surface": "#303036",
+              "on-primary-fixed-variant": "#523391",
+              "outline": "#7a7582",
+              "on-secondary-fixed-variant": "#4b425d",
+              "tertiary": "#635083",
+              "surface-dim": "#dbd9e1",
+              "on-background": "#1b1b21",
+              "error": "#ba1a1a",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#ecdcff",
+              "surface-bright": "#fbf8ff",
+              "surface-container-high": "#e9e7ef",
+              "surface": "#fbf8ff",
+              "tertiary-fixed-dim": "#d3bcf7",
+              "surface-container-low": "#f5f2fa",
+              "inverse-primary": "#d2bcff",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#7c689d",
+              "surface-tint": "#6a4daa",
+              "surface-container": "#efedf5",
+              "primary-fixed-dim": "#d2bcff",
+              "surface-container-highest": "#e4e1e9",
+              "on-surface": "#1b1b21",
+              "on-primary-container": "#fcf5ff",
+              "outline-variant": "#cbc4d3",
+              "on-secondary-container": "#69607c",
+              "background": "#fbf8ff",
+              "primary-fixed": "#eaddff",
+              "secondary": "#635a76",
+              "secondary-fixed-dim": "#cdc1e2",
+              "on-secondary": "#ffffff",
+              "primary-container": "#7e60bf"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #cbc4d3;
+        border-radius: 10px;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fbf8ff] dark:bg-slate-950 flex items-center justify-between px-4 h-14 w-full">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#f5f2fa] dark:hover:bg-slate-800 transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-[#6547a4] dark:text-[#d2bcff]" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Inter'] font-bold text-xl tracking-tight text-[#6547a4] dark:text-[#d2bcff]">Cart</h1>
+</div>
+<div class="flex items-center">
+<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container">3 ITEMS</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-16 pb-32 px-4 max-w-2xl mx-auto w-full space-y-5">
+<!-- Pharmacy Items Section -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<h2 class="text-label-md font-bold tracking-tight text-primary uppercase text-xs">Pharmacy Items</h2>
+<span class="text-[10px] text-outline font-medium">SHIPS IN 24H</span>
+</div>
+<!-- Item 1: Paracetamol -->
+<div class="bg-surface-container-lowest rounded-lg p-3 flex gap-3 shadow-[0px_4px_20px_rgba(126,96,191,0.06)] border border-outline-variant/10">
+<div class="w-20 h-20 bg-surface-container-low rounded overflow-hidden flex-shrink-0 relative">
+<img alt="Medicine box" class="w-full h-full object-cover" data-alt="3D clay style medicine box mockup with soft lavender and white colors on a clean clinical background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQbZVmRb2lhJlS-3RItxl5I3L57B7nI7JVkr7B4SNcDoz8xEPV2bKZja10ww29SWVncLEnYFLBuSxwyjJUORrX-rqejFwWJ4dSzhXV83alel2l4wKQKROKD1x12v2aV-ll2BuQ6kVaBIrj4Bkd21ETtUO7AYD7_3zvNZp1gR6EvtO451HfJ04bSS5rCUgpTmwEn_dKsxbonnEE97TVpd4oW4ceYYht-IoLea-d3R2gbGhiPghbMLO-S1stqPw59NnCP-cQ2SZ9zl2U"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-on-surface text-sm">Paracetamol 500mg</h3>
+<p class="text-[10px] text-outline font-medium">Strip of 10 Tablets</p>
+</div>
+<button class="text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-extrabold text-primary text-base">$12.50</span>
+<div class="flex items-center bg-surface-container-low rounded-sm px-1 py-1 gap-3">
+<button class="w-5 h-5 flex items-center justify-center text-primary hover:bg-surface-container-high rounded transition-colors">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="remove">remove</span>
+</button>
+<span class="text-xs font-bold text-on-surface">2</span>
+<button class="w-5 h-5 flex items-center justify-center text-primary hover:bg-surface-container-high rounded transition-colors">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2: Salbutamol -->
+<div class="bg-surface-container-lowest rounded-lg p-3 flex gap-3 shadow-[0px_4px_20px_rgba(126,96,191,0.06)] border border-outline-variant/10">
+<div class="w-20 h-20 bg-surface-container-low rounded overflow-hidden flex-shrink-0">
+<img alt="Inhaler" class="w-full h-full object-cover" data-alt="Modern 3D render of a medical inhaler with clean violet accents on a soft white clinical studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnCDG3csMZiIQjvu7-N9I5S-Bt_Y11obhKRsxAmUw6Hyg4UfIxN2WGIhdd0P5XdhpwiyXsPh58K1LSsXKpUMC7WbLIyzs6OI_NDPViNytBUcjjlheIyP13--V93Y9J7QxQzuIYIHEQ1MP5c4ZT0NM9CI9o0jPltxj8S9pJSD8gthSjwzYGX5Tna19_tiXUu-51BYIia90rCYcYb-ubsQKdo2ZxQH4ecdQcuY0DsJOz3I6negg1N1x58RsvgAfhb-7-mUpSK8SWFuzP"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-on-surface text-sm">Salbutamol Inhaler</h3>
+<p class="text-[10px] text-outline font-medium">100mcg (200 doses)</p>
+</div>
+<button class="text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-extrabold text-primary text-base">$45.00</span>
+<div class="flex items-center bg-surface-container-low rounded-sm px-1 py-1 gap-3">
+<button class="w-5 h-5 flex items-center justify-center text-primary hover:bg-surface-container-high rounded transition-colors">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="remove">remove</span>
+</button>
+<span class="text-xs font-bold text-on-surface">1</span>
+<button class="w-5 h-5 flex items-center justify-center text-primary hover:bg-surface-container-high rounded transition-colors">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Lab Tests Section -->
+<section class="space-y-3">
+<h2 class="text-label-md font-bold tracking-tight text-primary uppercase text-xs">Lab Tests</h2>
+<div class="bg-surface-container-lowest rounded-lg p-3 flex items-center justify-between shadow-[0px_4px_20px_rgba(126,96,191,0.06)] border border-outline-variant/10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-sm bg-tertiary-container/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface text-sm">Ultra Full Body Checkup</h3>
+<p class="text-[10px] text-outline font-medium">84 parameters included</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<button class="text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="close">close</span>
+</button>
+<span class="font-extrabold text-primary text-sm">$129.99</span>
+</div>
+</div>
+</section>
+<!-- Bill Details Section -->
+<section class="space-y-3">
+<h2 class="text-label-md font-bold tracking-tight text-primary uppercase text-xs">Bill Details</h2>
+<div class="bg-surface-container rounded-xl p-4 space-y-2.5">
+<div class="flex justify-between text-xs font-medium text-on-surface-variant">
+<span>Item Total</span>
+<span class="text-on-surface font-bold">$187.49</span>
+</div>
+<div class="flex justify-between text-xs font-medium text-on-surface-variant">
+<span>Delivery Fee</span>
+<span class="text-primary font-bold">FREE</span>
+</div>
+<div class="flex justify-between text-xs font-medium text-on-surface-variant">
+<span>Taxes &amp; Charges</span>
+<span class="text-on-surface font-bold">$4.50</span>
+</div>
+<div class="pt-2.5 border-t border-outline-variant/30 flex justify-between items-center">
+<span class="text-sm font-extrabold text-on-surface">Grand Total</span>
+<span class="text-lg font-black text-primary">$191.99</span>
+</div>
+</div>
+<!-- Loyalty/Promo Card -->
+<div class="bg-primary-container/20 rounded-lg p-3 flex items-center justify-between border border-primary/10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="loyalty">loyalty</span>
+<span class="text-[10px] font-bold text-primary">PLATINUM_SAVER applied</span>
+</div>
+<span class="text-[10px] font-black text-primary">-$15.00</span>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar & Navigation Shell -->
+<div class="fixed bottom-0 w-full z-50">
+<!-- Proceed Button Container -->
+<div class="bg-surface p-4 flex flex-col gap-4 shadow-[0px_-4px_20px_rgba(126,96,191,0.06)] border-t border-outline-variant/10">
+<button class="w-full bg-primary text-white font-bold py-3.5 rounded-full flex items-center justify-center gap-2 active:scale-[0.98] transition-all shadow-lg shadow-primary/20">
+<span>Proceed to Payment</span>
+<span class="material-symbols-outlined text-base" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- BottomNavBar -->
+<nav class="bg-[#ffffff] dark:bg-slate-900 flex justify-around items-center w-full py-2 px-4 h-16 border-t border-[#cbc4d3]/15">
+<a class="flex flex-col items-center justify-center text-[#1b1b21] dark:text-slate-400 px-3 py-1 hover:text-[#6547a4] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-tight">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1b21] dark:text-slate-400 px-3 py-1 hover:text-[#6547a4] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-tight">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#7e60bf] text-white rounded-sm px-3 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-tight">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1b21] dark:text-slate-400 px-3 py-1 hover:text-[#6547a4] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="emergency">emergency</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-tight">Emergency</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1b21] dark:text-slate-400 px-3 py-1 hover:text-[#6547a4] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-tight">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

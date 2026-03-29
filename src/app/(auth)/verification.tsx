@@ -13,6 +13,9 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { AuthButton } from '@/components/auth/AuthButton';
 import { LoginIllustration } from '@/components/auth/LoginIllustration';
 
+// DEV_MODE: Set to true to skip patient profile form during development
+const DEV_MODE = true;
+
 export default function VerificationScreen() {
   const { mobile } = useLocalSearchParams<{ mobile: string }>();
   const [otp, setOtp] = useState(['', '', '', '', '', '']);
@@ -54,7 +57,12 @@ export default function VerificationScreen() {
     // Simulate API call
     setTimeout(() => {
       setLoading(false);
-      router.replace('/(profile)/patient-profile');
+      // Skip patient profile in DEV_MODE, go directly to home
+      if (DEV_MODE) {
+        router.replace('/(tabs)/home');
+      } else {
+        router.replace('/(profile)/patient-profile');
+      }
     }, 1500);
   };
 

@@ -1,217 +1,281 @@
-# MSH Hospital Mobile App
+# GitHub Copilot Instructions for MSH Hospital App
 
-A React Native mobile application for MSH Hospital, built with Expo and featuring a stunning animated splash screen.
+## Project Overview
+This is a React Native mobile application for MSH Hospital, built with Expo, TypeScript, and modern React Native practices.
 
-## 🚀 Features
+## Tech Stack
+- **Framework**: React Native with Expo (~55.0.10)
+- **Language**: TypeScript (~5.9.2)
+- **Routing**: Expo Router (~55.0.9)
+- **UI**: React Native components, Ionicons
+- **Animations**: React Native Reanimated (4.2.1)
+- **SVG**: react-native-svg with react-native-svg-transformer
 
-- **Animated Splash Screen**: Professional hospital branding with smooth animations
-- **Cross-Platform**: Runs on iOS, Android, and Web
-- **Modern Stack**: Built with Expo Router, React Native Reanimated, and TypeScript
+## Code Style & Conventions
+- Use TypeScript for all new files
+- Use functional components with hooks
+- Use StyleSheet.create() for styles
+- Follow naming conventions:
+  - Components: PascalCase (e.g., `PatientProfile.tsx`)
+  - Files: kebab-case for screens, PascalCase for components
+  - Variables: camelCase
+- Add proper type definitions for props and state
 
-## 📋 Prerequisites
+## Design System
+### Colors (Lavender Clay Models - Material 3)
+- **Primary Purple**: `#6547a4`
+- **Primary Container**: `#7e60bf`
+- **Secondary Lavender**: `#8389BE` / `#C8B6E2`
+- **Surface**: `#fbf8ff`
+- **Surface Container**: `#efedf5`
+- **Surface Container High**: `#e9e7ef`
+- **On Surface**: `#1b1b21`
+- **On Surface Variant**: `#494551`
+- **Outline**: `#7a7582`
+- **Outline Variant**: `#cbc4d3`
+- **Tertiary**: `#635083`
+- **Error/Emergency**: `#ba1a1a`
+- **Placeholder**: `#B8C9D0`
 
-Before you begin, ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (v18 or higher)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-- [Expo CLI](https://docs.expo.dev/get-started/installation/)
-- For iOS development: Xcode (Mac only)
-- For Android development: Android Studio
+### Typography
+- **Headers**: 24-28px, weight: 600-700
+- **Body**: 16px
+- **Secondary**: 14-15px
+- **Small**: 13px
 
-## 🛠️ Installation
+### Components
+- **Input height**: 56px
+- **Border radius**: 8px (inputs), 12-24px (buttons/cards)
+- **Button height**: 56px
+- **Spacing**: Use multiples of 8 (8, 16, 20, 24, 32, 40)
 
-1. **Clone the repository**
-   ```bash
-   git clone <your-repository-url>
-   cd my-app
-   ```
+## App Architecture
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm start
-   ```
-
-## 📱 Running the App
-
-After starting the development server, you can run the app on:
-
-- **iOS Simulator** (Mac only):
-  ```bash
-  npm run ios
-  ```
-  Or press `i` in the terminal after running `npm start`
-
-- **Android Emulator**:
-  ```bash
-  npm run android
-  ```
-  Or press `a` in the terminal after running `npm start`
-
-- **Web Browser**:
-  ```bash
-  npm run web
-  ```
-  Or press `w` in the terminal after running `npm start`
-
-- **Physical Device**: Scan the QR code with the Expo Go app
-  - [iOS - Expo Go on App Store](https://apps.apple.com/app/expo-go/id982107779)
-  - [Android - Expo Go on Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent)
-
-## 📂 Project Structure
-
+### File Structure
 ```
-my-app/
-├── src/
-│   ├── app/                    # App screens (Expo Router)
-│   │   ├── _layout.tsx        # Root layout with splash screen
-│   │   ├── index.tsx          # Home screen
-│   │   └── explore.tsx        # Explore screen
-│   ├── components/            # Reusable components
-│   │   ├── msh-splash-screen.tsx  # Custom splash screen
-│   │   └── msh-logo.tsx           # MSH Hospital logo
-│   ├── constants/             # App constants
-│   └── hooks/                 # Custom React hooks
-├── assets/                    # Images, fonts, and other assets
-│   ├── msh-logo.svg          # MSH Hospital logo file
-│   └── images/               # App images
-├── app.json                   # Expo configuration
-├── package.json              # Dependencies and scripts
-└── tsconfig.json             # TypeScript configuration
+src/
+├── app/
+│   ├── (auth)/              # Authentication screens
+│   │   ├── login.tsx        # Mobile number + OTP login
+│   │   ├── verification.tsx # 6-digit OTP verification
+│   │   ├── register.tsx     # User registration
+│   │   ├── forgot-password.tsx
+│   │   └── reset-password.tsx
+│   ├── (profile)/           # Profile setup screens
+│   │   └── patient-profile.tsx # Patient onboarding form
+│   ├── (tabs)/              # Main tab screens
+│   │   ├── home.tsx         # Dashboard with services
+│   │   ├── doctors.tsx      # Expert directory search
+│   │   ├── cart.tsx         # Pharmacy & lab cart
+│   │   ├── order-medicine.tsx # Order medicines (Stitch design)
+│   │   ├── book-appointment.tsx # Book doctor appointment (Stitch design)
+│   │   ├── bookings.tsx     # Appointments (placeholder)
+│   │   ├── records.tsx      # Health records (placeholder)
+│   │   ├── emergency.tsx    # Ambulance services
+│   │   └── profile.tsx      # User profile & settings
+│   ├── _layout.tsx          # Root layout with splash
+│   ├── index.tsx            # Entry router
+│   └── explore.tsx          # Tutorial/documentation
+├── components/              # Reusable components
+│   ├── auth/               # Auth-specific components
+│   │   ├── AuthButton.tsx
+│   │   └── LoginIllustration.tsx
+│   ├── common/             # Shared components
+│   └── HospitalSplashScreen.tsx
+├── constants/              # App constants
+└── hooks/                  # Custom hooks
+assets/
+├── images/
+│   ├── illustration/       # Medical illustrations (SVG)
+│   ├── stitch-designs/     # Stitch design screenshots
+│   └── tabIcons/          # Tab navigation icons
+└── msh-logo.svg
 ```
 
-## 🎨 Splash Screen
+### Navigation Structure
+```
+Root (_layout)
+├── (auth) [Stack Navigation]
+│   ├── login → index.tsx (default)
+│   ├── register
+│   ├── verification (modal)
+│   ├── forgot-password (modal)
+│   └── reset-password (modal)
+├── (tabs) [Tab Navigation]
+│   ├── home (grid icon)
+│   ├── doctors (medkit icon)
+│   ├── cart (cart icon)
+│   ├── order-medicine (hidden - via navigation)
+│   ├── book-appointment (hidden - via navigation)
+│   ├── bookings (calendar - hidden)
+│   ├── records (document - hidden)
+│   ├── emergency (warning icon)
+│   └── profile (person-circle icon)
+├── (profile) [Stack Navigation]
+│   └── patient-profile
+├── index.tsx (entry router)
+└── explore.tsx
+```
 
-The app features a custom animated splash screen with:
-- Animated lavender square with rotation and scaling effects
-- MSH Hospital logo with smooth entrance animation
-- Text reveal with "MSH HOSPITAL" branding
-- Decorative line and loading dot animations
-- Floating particle effects
-- Smooth fade-to-white transition
+### Authentication Flow
+1. App starts → `/` → checks auth state
+2. If not authenticated → `/(auth)/login` (send OTP)
+3. → `/(auth)/verification` (verify OTP)
+4. → `/(profile)/patient-profile` (complete profile) **[Skip in DEV_MODE]**
+5. → `/` → `/(tabs)/home` (main app)
 
-**Duration**: ~5.4 seconds
+## Development Configuration
 
-The splash screen is built with React Native Reanimated for optimal 60fps performance.
+### DEV_MODE Flag
+In `src/app/(auth)/verification.tsx`, there's a `DEV_MODE` constant:
+- `DEV_MODE = true`: Skips patient profile form, goes directly to home
+- `DEV_MODE = false`: Normal flow through patient profile
 
-## 🔧 Available Scripts
-
-- `npm start` - Start the Expo development server
-- `npm run android` - Run on Android emulator/device
-- `npm run ios` - Run on iOS simulator/device (Mac only)
-- `npm run web` - Run in web browser
-- `npm run lint` - Run ESLint for code quality
-- `npm run reset-project` - Reset the project to initial state
-
-## 📦 Key Dependencies
-
-- **expo**: ~55.0.10 - Expo framework
-- **react**: 19.2.0 - React library
-- **react-native**: 0.83.4 - React Native framework
-- **react-native-reanimated**: 4.2.1 - Animations library
-- **react-native-svg**: Latest - SVG rendering
-- **expo-router**: ~55.0.9 - File-based routing
-- **typescript**: ~5.9.2 - Type safety
-
-## 🔄 Development Workflow
-
-1. **Start development server**:
-   ```bash
-   npm start
-   ```
-
-2. **Make changes**: Edit files in the `src/` directory
-
-3. **See changes**: Changes will hot-reload automatically
-
-4. **Test on multiple platforms**: Use Expo Go or simulators
-
-## 🏗️ Building for Production
-
-### Android (APK/AAB)
+### Running the App
 ```bash
-npx expo build:android
+npm start          # Start Expo dev server
+npm run ios        # iOS simulator
+npm run android    # Android emulator
+npm run web        # Web browser
 ```
 
-### iOS (IPA)
-```bash
-npx expo build:ios
-```
+## Screen Summaries
 
-### Using EAS Build (Recommended)
-```bash
-npm install -g eas-cli
-eas build --platform all
-```
+### Auth Screens
+- **Login**: Mobile number input with +91 prefix, 10-digit validation
+- **Verification**: 6-digit OTP with auto-focus, 30s resend timer
+- **Register**: Name, email, password with T&C checkbox
 
-For more details, see [Expo Build Documentation](https://docs.expo.dev/build/introduction/).
+### Main Screens
+- **Home Dashboard**: Quick actions grid, health services, promotions
+- **Doctors**: Specialty filters, doctor cards with ratings & booking
+- **Cart**: Pharmacy items, lab tests, bill details, checkout
+- **Emergency**: Red-themed ambulance call (24/7, 8-12 min response)
+- **Profile**: Premium member card, stats, settings, security options
 
-## 🎯 Customization
+## Best Practices
+1. Always handle loading states
+2. Show appropriate error messages
+3. Use Platform-specific code when necessary
+4. Optimize images and assets
+5. Test on both iOS and Android
+6. Use proper keyboard handling (KeyboardAvoidingView)
+7. Implement proper navigation patterns
+8. Use StatusBar appropriately
 
-### Updating the Splash Screen
+## Common Patterns
 
-1. **Logo**: Replace `assets/msh-logo.svg` with your logo
-2. **Colors**: Edit colors in `src/components/msh-splash-screen.tsx`:
-   - Background: `#FDFCFF` (line 269)
-   - Square color: `#C8B6E2` (line 278)
-3. **Animation timing**: Adjust durations in the `useEffect` hook
-
-### Adding New Screens
-
-Create new files in `src/app/` directory. Expo Router will automatically create routes:
+### Input Component
 ```typescript
-// src/app/about.tsx
-export default function AboutScreen() {
-  return <View>...</View>;
+<TextInput
+  style={styles.input}
+  placeholder="Enter text"
+  placeholderTextColor="#B8C9D0"
+  value={value}
+  onChangeText={setValue}
+/>
+```
+
+### Button Component
+```typescript
+<TouchableOpacity
+  style={[styles.button, disabled && styles.buttonDisabled]}
+  onPress={handlePress}
+  disabled={disabled}
+>
+  <Text style={styles.buttonText}>Button Text</Text>
+</TouchableOpacity>
+```
+
+### SVG Import (with transformer)
+```typescript
+import MyIllustration from '@/assets/images/illustration/my-image.svg';
+// Use as component: <MyIllustration width="100%" height="100%" />
+```
+
+## Stitch Instructions
+
+Get the images and code for the following Stitch project's screens:
+
+### Project
+- **Title**: My Appointments
+- **ID**: 11887516994924425019
+
+### Screens
+1. **Order Medicine (Simplified)** - ID: `8abadcd62b314843ada43d42647b8588`
+2. **Book Appointment** - ID: `dc41d743ecb84eb2b03f10d29038c784`
+3. **Personal Details Form** - ID: `9081651514d947cf801a02f53d460e4c`
+4. **Booking Confirmation** - ID: `df3bdfa7920c4f9eb7a3f0fc33f1c194`
+5. **Home Care Catalog** - ID: `ed5243cb6f454717b7570d6f839fa7b8`
+6. **Health Records Timeline** - ID: `f7008fe6799f48bebfc25483fcdf3066`
+
+### Stitch Design-to-Code Workflow
+
+When generating screens from Stitch, follow these steps:
+
+1. **Fetch Screen Data**: Use Stitch MCP tool `stitch-get_screen` with projectId and screenId
+   ```
+   stitch-get_screen(
+     name: "projects/{projectId}/screens/{screenId}",
+     projectId: "11887516994924425019",
+     screenId: "{screenId}"
+   )
+   ```
+
+2. **Extract Design Assets**:
+   - **Screenshot URL**: Download from `screenshotUrl` using `curl -L`
+   - **HTML/CSS Code**: The response includes `htmlCssCode` with complete design markup
+   - **Design Tokens**: Extract colors, fonts, spacing from the HTML/CSS
+
+3. **Use HTML/CSS Design File**:
+   - The Stitch response provides a complete HTML/CSS design in markdown format
+   - **IMPORTANT**: Use this HTML/CSS code as the source of truth for exact styling
+   - Convert HTML elements to React Native components
+   - Convert CSS properties to React Native StyleSheet equivalents
+   - Match all colors, spacing, typography exactly from the CSS
+
+4. **CSS to React Native Conversion Guide**:
+   | CSS Property | React Native Equivalent |
+   |--------------|------------------------|
+   | `display: flex` | Default for View |
+   | `flex-direction` | `flexDirection` |
+   | `justify-content` | `justifyContent` |
+   | `align-items` | `alignItems` |
+   | `padding: 16px` | `padding: 16` |
+   | `margin: 8px 16px` | `marginVertical: 8, marginHorizontal: 16` |
+   | `border-radius` | `borderRadius` |
+   | `background-color` | `backgroundColor` |
+   | `font-size` | `fontSize` |
+   | `font-weight` | `fontWeight` (use strings: '400', '700') |
+   | `color` | `color` |
+   | `box-shadow` | `shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowRadius` |
+
+5. **Save Design Reference**:
+   - Download screenshots to `/assets/images/stitch-designs/`
+   - Name format: `{screen-name}.png`
+
+### MCP Server Configuration
+The Stitch MCP server is configured at `/home/codespace/.copilot/mcp-config.json`:
+```json
+{
+  "mcpServers": {
+    "stitch": {
+      "type": "http",
+      "url": "https://stitch.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "YOUR_API_KEY"
+      }
+    }
+  }
 }
 ```
 
-Access via: `/about`
-
-## 🐛 Troubleshooting
-
-### Module not found errors
-```bash
-npm install
-npx expo start -c
-```
-
-### SVG not rendering
-Ensure `react-native-svg` is properly installed:
-```bash
-npx expo install react-native-svg
-```
-
-### Animation issues
-Clear cache and restart:
-```bash
-npx expo start -c
-```
-
-## 📄 License
-
-[Add your license here]
-
-## 👥 Contributing
-
-[Add contribution guidelines]
-
-## 📞 Support
-
-For issues and questions:
-- Create an issue in the repository
-- Contact: [your-email@example.com]
-
-## 🎓 Learn More
-
-- [Expo Documentation](https://docs.expo.dev/)
-- [React Native Documentation](https://reactnative.dev/)
-- [Expo Router Documentation](https://expo.github.io/router/docs/)
-- [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/)
-
----
-
-**Built with ❤️ for MSH Hospital**
+### Available Stitch MCP Tools
+- `stitch-list_projects` - List all projects
+- `stitch-get_project` - Get project details
+- `stitch-list_screens` - List screens in a project
+- `stitch-get_screen` - Get screen details including HTML/CSS code
+- `stitch-generate_screen_from_text` - Generate new screen from prompt
+- `stitch-edit_screens` - Edit existing screens
+- `stitch-create_design_system` - Create design system
+- `stitch-apply_design_system` - Apply design system to screens

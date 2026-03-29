@@ -11,6 +11,7 @@
     "lint": "expo lint"
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-react": "^0.13.5",
     "@react-native-community/datetimepicker": "^8.6.0",
     "@react-navigation/bottom-tabs": "^7.15.5",
     "@react-navigation/elements": "^2.9.10",
@@ -21,6 +22,7 @@
     "expo-font": "55.0.5-canary-20260327-0789fbc",
     "expo-glass-effect": "55.0.9-canary-20260327-0789fbc",
     "expo-image": "55.0.7-canary-20260327-0789fbc",
+    "expo-linear-gradient": "^55.0.10-canary-20260328-bdc6273",
     "expo-linking": "55.0.10-canary-20260327-0789fbc",
     "expo-router": "55.0.9-canary-20260327-0789fbc",
     "expo-splash-screen": "55.0.14-canary-20260327-0789fbc",
@@ -43,6 +45,8 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "eslint": "^9.0.0",
+    "eslint-config-expo": "55.0.1-canary-20260327-0789fbc",
     "typescript": "~5.9.2"
   },
   "private": true

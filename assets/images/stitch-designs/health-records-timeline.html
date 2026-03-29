@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Med Monolith | Health Records</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-surface": "#303036",
+                        "surface": "#fbf8ff",
+                        "primary": "#6547a4",
+                        "primary-fixed": "#eaddff",
+                        "outline": "#7a7582",
+                        "on-surface-variant": "#494551",
+                        "surface-container": "#efedf5",
+                        "secondary-container": "#eaddff",
+                        "primary-container": "#7e60bf",
+                        "background": "#fbf8ff",
+                        "on-surface": "#1b1b21",
+                        "surface-container-high": "#e9e7ef",
+                        "secondary": "#635a76",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#1f1730",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#fcf5ff",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fbf8ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#4b425d",
+                        "surface-tint": "#6a4daa",
+                        "primary-fixed-dim": "#d2bcff",
+                        "inverse-on-surface": "#f2eff7",
+                        "tertiary-fixed": "#ecdcff",
+                        "tertiary": "#635083",
+                        "tertiary-container": "#7c689d",
+                        "surface-container-highest": "#e4e1e9",
+                        "on-tertiary-fixed": "#231141",
+                        "tertiary-fixed-dim": "#d3bcf7",
+                        "surface-dim": "#dbd9e1",
+                        "outline-variant": "#cbc4d3",
+                        "inverse-primary": "#d2bcff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#eaddff",
+                        "secondary-fixed-dim": "#cdc1e2",
+                        "on-tertiary-container": "#fdf5ff",
+                        "on-secondary-container": "#69607c",
+                        "surface-variant": "#e4e1e9",
+                        "on-primary-fixed": "#24005a",
+                        "surface-container-low": "#f5f2fa",
+                        "on-primary-fixed-variant": "#523391",
+                        "on-background": "#1b1b21",
+                        "on-tertiary-fixed-variant": "#503d6f",
+                        "on-primary": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; min-height: max(884px, 100dvh); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed min-h-screen pb-20">
+<!-- TopAppBar -->
+<header class="bg-[#fbf8ff] dark:bg-[#1b1b21] docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-4 h-12">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#6547a4] dark:text-[#d2bcff]" data-icon="clinical_notes">clinical_notes</span>
+<h1 class="text-lg font-black tracking-tighter text-[#6547a4] dark:text-[#d2bcff]">MED MONOLITH</h1>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="professional portrait of a medical practitioner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATwb2cgKqpWPWb1O-rKtPh0gGZ69u6I-Tqvx_30wkUbyjGTRaq8yMf53ZPuX9tzNrMZLoNZAjiNU1NQHlp8iUCOQhGRMQuXzVquS7qtPv1j5bT-VFuKwBOaqf-VafcABUWK1CvFABMu1ypoKODEvSsUjPpLyJKP4QtvTYWQ467ugYouIPA9IuFQYveTcAI8BJw_EjBD-WAulalLr5X0JT4Wlxab-0UQvkbza8prwQbpti73g2cE9yNuBgs5MDfR3GPPzeJ_Tn6BKuH"/>
+</div>
+</div>
+</header>
+<main class="max-w-5xl mx-auto px-4 pt-4 space-y-5">
+<!-- Search and Filter -->
+<section class="flex gap-2">
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]" data-icon="search">search</span>
+<input class="w-full h-8 bg-surface-container-low border-none rounded-sm pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary/20 placeholder:text-outline-variant" placeholder="Search records, labs, doctors..." type="text"/>
+</div>
+<button class="h-8 px-3 bg-surface-container-low hover:bg-surface-container-high transition-colors flex items-center gap-2 rounded-sm text-primary font-semibold text-xs uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]" data-icon="tune">tune</span>
+                Filters
+            </button>
+</section>
+<!-- All Records List -->
+<section class="space-y-4">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-[11px] font-extrabold uppercase tracking-[0.15em] text-primary/70">Health Records &amp; Activity</h2>
+<div class="flex gap-2">
+<span class="text-[10px] font-bold text-on-surface-variant/40">SORT BY: RECENT</span>
+</div>
+</div>
+<div class="space-y-3">
+<!-- Record: CBC -->
+<div class="bg-surface-container-lowest p-4 rounded-sm shadow-[0_4px_20px_rgba(126,96,191,0.06)] border-l-4 border-primary">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="text-[9px] font-black text-primary uppercase">OCT 24, 2023 • LAB REPORT</span>
+<h3 class="text-sm font-bold text-on-surface mt-1">Complete Blood Count (CBC)</h3>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px] cursor-pointer" data-icon="download">download</span>
+</div>
+<p class="text-[11px] text-on-surface-variant font-medium">Dr. Elena Rodriguez • Diagnostic Lab</p>
+<div class="mt-3 flex items-center gap-2">
+<span class="bg-primary/10 text-primary text-[9px] font-bold px-2 py-0.5 rounded-sm">CRITICAL</span>
+<span class="bg-surface-container text-on-surface-variant text-[9px] font-bold px-2 py-0.5 rounded-sm uppercase">Hematology</span>
+</div>
+</div>
+<!-- Record: Prescription -->
+<div class="bg-surface-container-lowest p-4 rounded-sm shadow-[0_4px_20px_rgba(126,96,191,0.06)] border-l-4 border-secondary">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="text-[9px] font-black text-secondary uppercase">TODAY • PRESCRIPTION</span>
+<h3 class="text-sm font-bold text-on-surface mt-1">Lisinopril 10mg</h3>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="prescriptions">prescriptions</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">Once daily for hypertension. Issued by <span class="text-primary font-semibold">Dr. Sarah Chen</span>.</p>
+<div class="mt-3">
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[8px] font-bold uppercase rounded-full">Pharmacy Ready</span>
+</div>
+</div>
+<!-- Record: Blood Test Activity -->
+<div class="bg-surface-container-lowest p-4 rounded-sm shadow-[0_4px_20px_rgba(126,96,191,0.06)] border-l-4 border-outline-variant">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="text-[9px] font-black text-on-surface-variant/60 uppercase">OCT 22, 2023 • LAB ACTIVITY</span>
+<h3 class="text-sm font-bold text-on-surface mt-1">Metabolic Panel &amp; Lipid Profile</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" data-icon="biotech">biotech</span>
+</div>
+<p class="text-[11px] text-on-surface-variant">Processed at Quest Diagnostics Lab #442.</p>
+<div class="mt-4 grid grid-cols-2 gap-3">
+<div class="bg-surface-container-low p-2 rounded-sm border border-outline-variant/10">
+<span class="text-[8px] font-bold text-on-surface-variant/60 uppercase">Glucose</span>
+<span class="block text-xs font-black text-on-surface mt-0.5">94 mg/dL</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-sm border border-outline-variant/10">
+<span class="text-[8px] font-bold text-on-surface-variant/60 uppercase">LDL</span>
+<span class="block text-xs font-black text-error mt-0.5">132 mg/dL</span>
+</div>
+</div>
+</div>
+<!-- Record: Radiology -->
+<div class="bg-surface-container-lowest p-4 rounded-sm shadow-[0_4px_20px_rgba(126,96,191,0.06)] border-l-4 border-tertiary">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="text-[9px] font-black text-tertiary uppercase">OCT 18, 2023 • RADIOLOGY</span>
+<h3 class="text-sm font-bold text-on-surface mt-1">Chest X-Ray PA View</h3>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[20px] cursor-pointer" data-icon="visibility">visibility</span>
+</div>
+<p class="text-[11px] text-on-surface-variant font-medium">City Imaging Center</p>
+<div class="mt-3">
+<span class="bg-surface-container text-on-surface-variant text-[9px] font-bold px-2 py-0.5 rounded-sm uppercase">Imaging</span>
+</div>
+</div>
+<!-- Record: Physical Exam -->
+<div class="bg-surface-container-lowest p-4 rounded-sm shadow-[0_4px_20px_rgba(126,96,191,0.06)] border-l-4 border-primary-container">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="text-[9px] font-black text-primary-container uppercase">OCT 15, 2023 • CLINICAL NOTE</span>
+<h3 class="text-sm font-bold text-on-surface mt-1">Annual Physical Examination</h3>
+</div>
+<span class="material-symbols-outlined text-primary-container text-[20px]" data-icon="notes">notes</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">Routine checkup with Dr. James Wilson. All vitals within normal parameters except BP.</p>
+<div class="mt-3 p-2 bg-surface-container-low border-l-2 border-primary-container/30 italic text-[10px] text-on-surface-variant/80">
+                        "Patient advised to reduce sodium intake and monitor heart rate during exercise."
+                    </div>
+</div>
+<!-- Record: EKG -->
+<div class="bg-surface-container-lowest p-4 rounded-sm shadow-[0_4px_20px_rgba(126,96,191,0.06)] border-l-4 border-primary">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="text-[9px] font-black text-primary uppercase">OCT 12, 2023 • CARDIOLOGY</span>
+<h3 class="text-sm font-bold text-on-surface mt-1">12-Lead Electrocardiogram</h3>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px] cursor-pointer" data-icon="download">download</span>
+</div>
+<p class="text-[11px] text-on-surface-variant font-medium">St. Jude Medical Center</p>
+<div class="mt-3">
+<span class="bg-surface-container text-on-surface-variant text-[9px] font-bold px-2 py-0.5 rounded-sm uppercase">Cardiac</span>
+</div>
+</div>
+</div>
+<div class="py-4 text-center">
+<button class="text-xs font-bold text-primary uppercase tracking-widest hover:underline">Load Older Records</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full bg-white dark:bg-[#1b1b21] flex justify-around items-center h-16 px-2 pb-safe z-50 border-t border-[#f5f2fa] dark:border-[#2b2930] shadow-[0_-4px_20px_rgba(126,96,191,0.06)]">
+<div class="flex flex-col items-center justify-center text-[#7e60bf] dark:text-[#cbc4d3] py-1 w-full transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] font-semibold tracking-tight">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#7e60bf] dark:text-[#cbc4d3] py-1 w-full transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-['Inter'] text-[10px] font-semibold tracking-tight">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#6547a4] dark:text-[#d2bcff] bg-[#efedf5] dark:bg-[#2b2930] rounded-sm py-1 w-full transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="folder_shared" style="font-variation-settings: 'FILL' 1;">folder_shared</span>
+<span class="font-['Inter'] text-[10px] font-semibold tracking-tight">Records</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#7e60bf] dark:text-[#cbc4d3] py-1 w-full transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="e911_emergency">e911_emergency</span>
+<span class="font-['Inter'] text-[10px] font-semibold tracking-tight">Emergency</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#7e60bf] dark:text-[#cbc4d3] py-1 w-full transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] font-semibold tracking-tight">Profile</span>
+</div>
+</nav>
+</body></html>
