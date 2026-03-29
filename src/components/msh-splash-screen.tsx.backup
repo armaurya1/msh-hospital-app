@@ -1,0 +1,393 @@
+import { useState, useEffect } from 'react';
+import { StyleSheet, View, Dimensions } from 'react-native';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+  withDelay,
+  withSequence,
+  Easing,
+  SharedValue,
+} from 'react-native-reanimated';
+import { MshLogo } from './msh-logo';
+
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
+const MAX_WIDTH = 480;
+const CONTAINER_WIDTH = Math.min(SCREEN_WIDTH, MAX_WIDTH);
+
+export function MshSplashScreen() {
+  const [visible, setVisible] = useState(true);
+
+  // Animation values
+  const squareScale = useSharedValue(1);
+  const squareRotation = useSharedValue(0);
+  const squareTranslateX = useSharedValue(0);
+  const squareTranslateY = useSharedValue(300);
+  const squareOpacity = useSharedValue(1);
+
+  const logoOpacity = useSharedValue(0);
+  const logoScale = useSharedValue(0.5);
+  const logoTranslateX = useSharedValue(0);
+  const logoTranslateY = useSharedValue(-60);
+
+  const textOpacity = useSharedValue(0);
+  const textTranslateX = useSharedValue(-40);
+  const textClipWidth = useSharedValue(0);
+
+  const lineWidth = useSharedValue(0);
+  const lineOpacity = useSharedValue(0);
+
+  const dotOpacity = useSharedValue(0);
+  const dotScale = useSharedValue(0.8);
+
+  const fadeOpacity = useSharedValue(0);
+
+  // Particle animations
+  const particle1Opacity = useSharedValue(0);
+  const particle1TranslateY = useSharedValue(0);
+  const particle2Opacity = useSharedValue(0);
+  const particle2TranslateY = useSharedValue(0);
+  const particle3Opacity = useSharedValue(0);
+  const particle3TranslateY = useSharedValue(0);
+  const particle4Opacity = useSharedValue(0);
+  const particle4TranslateY = useSharedValue(0);
+
+  useEffect(() => {
+    // Square animation (0-1800ms)
+    squareTranslateY.value = withSequence(
+      withTiming(0, { duration: 360, easing: Easing.bezier(0.25, 0.46, 0.45, 0.94) }),
+      withTiming(0, { duration: 270 }),
+      withTiming(0, { duration: 270 }),
+      withTiming(-180, { duration: 360 }),
+      withTiming(-180, { duration: 540 })
+    );
+
+    squareScale.value = withSequence(
+      withTiming(1, { duration: 360 }),
+      withTiming(2.125, { duration: 270, easing: Easing.bezier(0.25, 0.46, 0.45, 0.94) }),
+      withTiming(0.47, { duration: 270, easing: Easing.bezier(0.25, 0.46, 0.45, 0.94) }),
+      withTiming(8.33, { duration: 360, easing: Easing.bezier(0.25, 0.46, 0.45, 0.94) }),
+      withTiming(8.33, { duration: 540 })
+    );
+
+    squareRotation.value = withSequence(
+      withTiming(0, { duration: 630 }),
+      withTiming(15, { duration: 270, easing: Easing.bezier(0.25, 0.46, 0.45, 0.94) }),
+      withTiming(45, { duration: 180 }),
+      withTiming(135, { duration: 540, easing: Easing.bezier(0.25, 0.46, 0.45, 0.94) })
+    );
+
+    squareTranslateX.value = withSequence(
+      withTiming(0, { duration: 900 }),
+      withTiming(80, { duration: 180, easing: Easing.bezier(0.25, 0.46, 0.45, 0.94) }),
+      withTiming(-80, { duration: 720, easing: Easing.bezier(0.25, 0.46, 0.45, 0.94) })
+    );
+
+    // Logo animation (1200-3200ms)
+    logoOpacity.value = withDelay(
+      1200,
+      withSequence(
+        withTiming(1, { duration: 500, easing: Easing.bezier(0.34, 1.56, 0.64, 1) }),
+        withTiming(1, { duration: 400 }),
+        withTiming(1, { duration: 900 })
+      )
+    );
+
+    logoScale.value = withDelay(
+      1200,
+      withSequence(
+        withTiming(1.1, { duration: 500, easing: Easing.bezier(0.34, 1.56, 0.64, 1) }),
+        withTiming(1, { duration: 400 }),
+        withTiming(0.45, { duration: 900, easing: Easing.bezier(0.34, 1.56, 0.64, 1) })
+      )
+    );
+
+    logoTranslateX.value = withDelay(
+      2300,
+      withTiming(-CONTAINER_WIDTH / 2 + 70, {
+        duration: 900,
+        easing: Easing.bezier(0.34, 1.56, 0.64, 1),
+      })
+    );
+
+    // Text animation (2500-4000ms)
+    textOpacity.value = withDelay(
+      2500,
+      withSequence(
+        withTiming(1, { duration: 750, easing: Easing.bezier(0.25, 0.46, 0.45, 0.94) }),
+        withTiming(1, { duration: 300 }),
+        withTiming(1, { duration: 450 })
+      )
+    );
+
+    textTranslateX.value = withDelay(
+      2500,
+      withTiming(0, { duration: 750, easing: Easing.bezier(0.25, 0.46, 0.45, 0.94) })
+    );
+
+    textClipWidth.value = withDelay(
+      2500,
+      withTiming(100, { duration: 750, easing: Easing.bezier(0.25, 0.46, 0.45, 0.94) })
+    );
+
+    // Decorative line (3800-4800ms) - underline for text
+    lineOpacity.value = withDelay(
+      3800,
+      withSequence(withTiming(1, { duration: 200 }), withTiming(1, { duration: 800 }))
+    );
+
+    lineWidth.value = withDelay(
+      3800,
+      withTiming(200, { duration: 1000, easing: Easing.bezier(0.25, 0.46, 0.45, 0.94) })  // Reduced from 260 to 200
+    );
+
+    // Loading dot (4200ms+)
+    const dotAnimation = () => {
+      dotOpacity.value = withSequence(
+        withTiming(0, { duration: 120 }),
+        withTiming(1, { duration: 120 }),
+        withTiming(0.6, { duration: 240 }),
+        withTiming(1, { duration: 240 }),
+        withTiming(0.6, { duration: 240 }),
+        withTiming(1, { duration: 240 })
+      );
+
+      dotScale.value = withSequence(
+        withTiming(0.8, { duration: 120 }),
+        withTiming(1, { duration: 120 }),
+        withTiming(1.3, { duration: 240 }),
+        withTiming(1, { duration: 240 }),
+        withTiming(1.3, { duration: 240 }),
+        withTiming(1, { duration: 240 })
+      );
+    };
+
+    setTimeout(dotAnimation, 4200);
+
+    // Particles (2000ms+)
+    const animateParticle = (
+      opacity: SharedValue<number>,
+      translateY: SharedValue<number>,
+      delay: number
+    ) => {
+      setTimeout(() => {
+        opacity.value = withSequence(
+          withTiming(0.6, { duration: 2000 }),
+          withTiming(0, { duration: 2000 })
+        );
+        translateY.value = withTiming(-150, { duration: 4000, easing: Easing.inOut(Easing.ease) });
+      }, delay);
+    };
+
+    animateParticle(particle1Opacity, particle1TranslateY, 2000);
+    animateParticle(particle2Opacity, particle2TranslateY, 2400);
+    animateParticle(particle3Opacity, particle3TranslateY, 2800);
+    animateParticle(particle4Opacity, particle4TranslateY, 3200);
+
+    // Fade overlay (4800-5400ms)
+    fadeOpacity.value = withDelay(4800, withTiming(1, { duration: 600, easing: Easing.inOut(Easing.ease) }));
+
+    // Hide splash after animation
+    const timer = setTimeout(() => {
+      setVisible(false);
+    }, 5400);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Animated styles - MUST be before any conditional returns
+  const squareStyle = useAnimatedStyle(() => ({
+    width: 96 * squareScale.value,
+    height: 96 * squareScale.value,
+    transform: [
+      { translateX: squareTranslateX.value },
+      { translateY: squareTranslateY.value },
+      { rotate: `${squareRotation.value}deg` },
+    ],
+    opacity: squareOpacity.value,
+  }));
+
+  const logoStyle = useAnimatedStyle(() => ({
+    opacity: logoOpacity.value,
+    transform: [
+      { translateX: logoTranslateX.value },
+      { translateY: logoTranslateY.value },
+      { scale: logoScale.value },
+    ],
+  }));
+
+  const textStyle = useAnimatedStyle(() => ({
+    opacity: textOpacity.value,
+    transform: [{ translateX: textTranslateX.value }],
+  }));
+
+  const lineStyle = useAnimatedStyle(() => ({
+    width: lineWidth.value,
+    opacity: lineOpacity.value,
+  }));
+
+  const dotStyle = useAnimatedStyle(() => ({
+    opacity: dotOpacity.value,
+    transform: [{ scale: dotScale.value }],
+  }));
+
+  const fadeStyle = useAnimatedStyle(() => ({
+    opacity: fadeOpacity.value,
+  }));
+
+  const particle1Style = useAnimatedStyle(() => ({
+    opacity: particle1Opacity.value,
+    transform: [{ translateY: particle1TranslateY.value }],
+  }));
+
+  const particle2Style = useAnimatedStyle(() => ({
+    opacity: particle2Opacity.value,
+    transform: [{ translateY: particle2TranslateY.value }],
+  }));
+
+  const particle3Style = useAnimatedStyle(() => ({
+    opacity: particle3Opacity.value,
+    transform: [{ translateY: particle3TranslateY.value }],
+  }));
+
+  const particle4Style = useAnimatedStyle(() => ({
+    opacity: particle4Opacity.value,
+    transform: [{ translateY: particle4TranslateY.value }],
+  }));
+
+  if (!visible) return null;
+
+  return (
+    <View style={styles.container}>
+      {/* Animated Square */}
+      <Animated.View style={[styles.gradientSquare, squareStyle]} />
+
+      {/* Floating Particles */}
+      <Animated.View style={[styles.particle, styles.particle1, particle1Style]} />
+      <Animated.View style={[styles.particle, styles.particle2, particle2Style]} />
+      <Animated.View style={[styles.particle, styles.particle3, particle3Style]} />
+      <Animated.View style={[styles.particle, styles.particle4, particle4Style]} />
+
+      {/* Logo */}
+      <Animated.View style={[styles.logoWrapper, logoStyle]}>
+        <MshLogo width={160} height={160} fill="#FFFFFF" />
+      </Animated.View>
+
+      {/* Hospital Name */}
+      <Animated.View style={[styles.hospitalText, textStyle]}>
+        <Animated.Text style={styles.hospitalTextContent}>MSH HOSPITAL</Animated.Text>
+      </Animated.View>
+
+      {/* Text Underline */}
+      <Animated.View style={[styles.decoLine, lineStyle]} />
+
+      {/* Fade Overlay */}
+      <Animated.View style={[styles.fadeOverlay, fadeStyle]} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    position: 'absolute',
+    width: SCREEN_WIDTH,
+    height: SCREEN_HEIGHT,
+    maxWidth: MAX_WIDTH,
+    backgroundColor: '#FDFCFF',
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    zIndex: 1000,
+    alignSelf: 'center',
+  },
+  gradientSquare: {
+    position: 'absolute',
+    borderRadius: 20,
+    backgroundColor: '#C8B6E2',
+    shadowColor: '#C8B6E2',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.5,
+    shadowRadius: 40,
+    elevation: 10,
+  },
+  logoWrapper: {
+    position: 'absolute',
+    width: 160,
+    height: 160,
+    zIndex: 100,
+  },
+  hospitalText: {
+    position: 'absolute',
+    left: 130,
+    top: SCREEN_HEIGHT / 2 - 80,  // Moved up more from -60 to -80
+    zIndex: 100,
+  },
+  hospitalTextContent: {
+    fontFamily: 'System',
+    fontSize: 22,  // Reduced from 28 to 22
+    fontWeight: '700',
+    color: '#FFFFFF',
+    letterSpacing: 2,  // Reduced from 2.5 to 2
+    textTransform: 'uppercase',
+    textShadowColor: 'rgba(255, 255, 255, 0.3)',
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 20,
+  },
+  decoLine: {
+    position: 'absolute',
+    height: 2,
+    backgroundColor: '#FFFFFF',
+    top: SCREEN_HEIGHT / 2 - 55,  // Just below the text
+    left: 130,  // Start from same position as text
+    shadowColor: '#FFFFFF',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 15,
+    elevation: 5,
+    zIndex: 100,
+  },
+  loadingDot: {
+    position: 'absolute',
+    width: 14,
+    height: 14,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 7,
+    top: SCREEN_HEIGHT / 2 - 50,  // Adjusted to be below the new text position
+    shadowColor: '#FFFFFF',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 20,
+    elevation: 10,
+    zIndex: 100,
+  },
+  fadeOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: '#FDFCFF',
+    zIndex: 200,
+    pointerEvents: 'none',
+  },
+  particle: {
+    position: 'absolute',
+    width: 6,
+    height: 6,
+    backgroundColor: 'rgba(200, 182, 226, 0.6)',
+    borderRadius: 3,
+    zIndex: 100,
+  },
+  particle1: {
+    left: CONTAINER_WIDTH * 0.15,
+    top: SCREEN_HEIGHT * 0.8,
+  },
+  particle2: {
+    left: CONTAINER_WIDTH * 0.85,
+    top: SCREEN_HEIGHT * 0.75,
+  },
+  particle3: {
+    left: CONTAINER_WIDTH * 0.25,
+    top: SCREEN_HEIGHT * 0.7,
+  },
+  particle4: {
+    left: CONTAINER_WIDTH * 0.75,
+    top: SCREEN_HEIGHT * 0.85,
+  },
+});

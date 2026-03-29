@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Home Dashboard - Max Healthcare</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #fbf8ff; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#f5f2fa",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#fcf5ff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#231141",
+                        "tertiary": "#635083",
+                        "secondary": "#635a76",
+                        "surface-container-highest": "#e4e1e9",
+                        "surface-dim": "#dbd9e1",
+                        "on-secondary-fixed": "#1f1730",
+                        "surface-variant": "#e4e1e9",
+                        "surface-bright": "#fbf8ff",
+                        "secondary-container": "#eaddff",
+                        "surface-container-high": "#e9e7ef",
+                        "on-secondary-container": "#69607c",
+                        "on-background": "#1b1b21",
+                        "background": "#fbf8ff",
+                        "tertiary-fixed": "#ecdcff",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "surface": "#fbf8ff",
+                        "on-tertiary-fixed-variant": "#503d6f",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#4b425d",
+                        "primary-fixed-dim": "#d2bcff",
+                        "on-surface-variant": "#494551",
+                        "inverse-surface": "#303036",
+                        "primary-container": "#7e60bf",
+                        "on-primary-fixed-variant": "#523391",
+                        "surface-container": "#efedf5",
+                        "on-primary-fixed": "#24005a",
+                        "tertiary-fixed-dim": "#d3bcf7",
+                        "inverse-on-surface": "#f2eff7",
+                        "primary": "#6547a4",
+                        "outline-variant": "#cbc4d3",
+                        "inverse-primary": "#d2bcff",
+                        "primary-fixed": "#eaddff",
+                        "surface-tint": "#6a4daa",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#eaddff",
+                        "outline": "#7a7582",
+                        "on-tertiary-container": "#fdf5ff",
+                        "on-surface": "#1b1b21",
+                        "secondary-fixed-dim": "#cdc1e2",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#7c689d"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased mb-16">
+<!-- TopAppBar -->
+<header class="bg-[#fbf8ff] dark:bg-[#1b1b21] flex justify-between items-center w-full px-3 h-10 border-b border-[#cbc4d3]/15 sticky top-0 z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#6547a4] dark:text-[#d2bcff]">local_hospital</span>
+<h1 class="text-lg font-black tracking-tighter text-[#6547a4] dark:text-[#d2bcff] uppercase">MED_MONOLITH</h1>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">notifications</span>
+<div class="w-6 h-6 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant/30">
+<img alt="professional physician" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB44zVo7LJ5EeVncIKnVECJMtW_zy7dGx3LwCg1oCqQx5jNqOTLZZAIHpTjbIcCJDTOkL-Nds_OPa0SECoK4iRPiWhvXissZgFM0bF0eSI9-2Qn8msWBzM_jv7jdM1nfjFhODBQOpZQyG6oxGudIYklWhrk4r_unGXYV1qPdFTJSxB5z0Thzwe78jJhNaOn-kcBRE33HbEXCNFwfgn14L9nFPnkufGB6KjKUaf2NfxGt0cjP_uzMR44lpQ7CvIKy5IIw6z3QNvGvTyQ"/>
+</div>
+</div>
+</header>
+<main class="max-w-5xl mx-auto px-3 py-4 space-y-4">
+<!-- Compact Search Section -->
+<section class="bg-surface-container-low p-2 rounded-sm">
+<div class="relative flex items-center bg-surface-container-lowest rounded-sm h-8 px-3 border border-outline-variant/10">
+<span class="material-symbols-outlined text-sm text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs w-full placeholder:text-outline font-medium tracking-tight" placeholder="Search diagnostics, physicians, or records..." type="text"/>
+<span class="material-symbols-outlined text-sm text-primary">mic</span>
+</div>
+</section>
+<!-- Bento Grid: Onboarding & Recent Activity -->
+<div class="grid grid-cols-12 gap-3">
+<!-- Modified Onboarding Section: Now only Recent Activity spans full width if required, or condensed -->
+<div class="col-span-12 md:col-span-7">
+<!-- Recent Activity (Spanning full width of the left bento column) -->
+<div class="bg-surface-container p-3 flex items-center justify-between border border-outline-variant/10 overflow-hidden relative h-full min-h-[100px]">
+<div class="z-10">
+<p class="text-[0.65rem] font-bold text-on-surface-variant uppercase tracking-widest">Recent Activity</p>
+<h3 class="text-sm font-bold text-on-surface">Complete Lipid Profile Analysis</h3>
+<p class="text-[0.6875rem] text-outline mt-1 font-medium">Pathology Lab #402 • 2h ago</p>
+</div>
+<div class="z-10 flex gap-1">
+<button class="bg-primary text-white text-[10px] font-bold px-3 py-1 uppercase tracking-tighter rounded-sm active:scale-95 transition-all">View Report</button>
+</div>
+<div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-primary/5 to-transparent flex items-center justify-end pr-4">
+<span class="material-symbols-outlined text-4xl text-primary/10">science</span>
+</div>
+</div>
+</div>
+<!-- Quick Actions Grid (3x2) -->
+<div class="col-span-12 md:col-span-5 grid grid-cols-3 gap-2">
+<div class="bg-surface-container-lowest p-2 border border-outline-variant/10 flex flex-col items-center justify-center text-center gap-1 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">calendar_month</span>
+<span class="text-[0.65rem] font-bold text-on-surface leading-tight uppercase">Book<br/>Appointment</span>
+</div>
+<div class="bg-surface-container-lowest p-2 border border-outline-variant/10 flex flex-col items-center justify-center text-center gap-1 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">medical_services</span>
+<span class="text-[0.65rem] font-bold text-on-surface leading-tight uppercase">Order<br/>Medicines</span>
+</div>
+<div class="bg-surface-container-lowest p-2 border border-outline-variant/10 flex flex-col items-center justify-center text-center gap-1 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">biotech</span>
+<span class="text-[0.65rem] font-bold text-on-surface leading-tight uppercase">Lab<br/>Tests</span>
+</div>
+<div class="bg-surface-container-lowest p-2 border border-outline-variant/10 flex flex-col items-center justify-center text-center gap-1 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">videocam</span>
+<span class="text-[0.65rem] font-bold text-on-surface leading-tight uppercase">Tele<br/>Consult</span>
+</div>
+<div class="bg-surface-container-lowest p-2 border border-outline-variant/10 flex flex-col items-center justify-center text-center gap-1 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">description</span>
+<span class="text-[0.65rem] font-bold text-on-surface leading-tight uppercase">Health<br/>Records</span>
+</div>
+<div class="bg-surface-container-lowest p-2 border border-outline-variant/10 flex flex-col items-center justify-center text-center gap-1 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-error group-hover:scale-110 transition-transform">e911_emergency</span>
+<span class="text-[0.65rem] font-bold text-error leading-tight uppercase">Call<br/>Ambulance</span>
+</div>
+</div>
+</div>
+<!-- Promotional Banner -->
+<section class="relative bg-primary overflow-hidden p-4 min-h-[120px] flex flex-col justify-center">
+<div class="absolute inset-0 opacity-20">
+<img alt="abstract high-tech medical laboratory" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBTPmWVcC3BYYYUm-4Yb3fGGRvt9VFXjL9dMlRJZD-fX_-8Iw-nNCz71Klq4VMBJUMgBUqjplU5R3ZrjAQLFlM2KQinkAvVvfwXt3EQfCz9ZPnkZ0tTF7EjnUdNO6o1OEMEAennlL0OS1nS1LPMRQ9V01173m9NI4htjRwKG1zSbCr5D3F0T5aLM63iJ5bSKgmanfxbQ6ul-KlT4dDFwe6SWwcEeM9UEtUemGrRyKCOc8mcbrBIOs4FtqM1TbW0jvW-PYEt2MeFina"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary to-transparent"></div>
+<div class="relative z-10 max-w-sm">
+<span class="bg-white/20 text-white text-[0.6rem] px-2 py-0.5 rounded-full font-bold uppercase tracking-widest mb-2 inline-block">Pro Health Plus</span>
+<h2 class="text-xl font-black text-white leading-tight tracking-tighter uppercase">Comprehensive Cardiac Screening</h2>
+<p class="text-white/80 text-[0.6875rem] font-medium leading-relaxed mt-1">Full body profiling including ECG, Lipid, Stress Test &amp; Consultant Review. Save 40% on family bookings this weekend.</p>
+<div class="mt-3 flex gap-2">
+<button class="bg-white text-primary text-[0.65rem] font-black px-4 py-1.5 uppercase tracking-tighter rounded-sm">Claim Now</button>
+</div>
+</div>
+</section>
+<!-- Home Care Services -->
+<section>
+<div class="flex justify-between items-end mb-2">
+<h2 class="text-[0.65rem] font-black text-on-surface uppercase tracking-[0.2em]">Home Care Services</h2>
+<span class="text-[0.6rem] font-bold text-primary cursor-pointer hover:underline">VIEW ALL CATALOG</span>
+</div>
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+<div class="flex-shrink-0 w-40 bg-surface-container-lowest border border-outline-variant/10 p-2">
+<div class="h-24 bg-[#f3e8ff] mb-2 overflow-hidden relative rounded-sm">
+<img alt="Critical Care Nursing" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1XjsWJKmgCXLXpBmSWpsm6PLXpbaGbq1OymfS9R8eVkSPjPYG5E5joqdtZXjMaMeZwl7MNQdg3EGMSRTI7R-ER2uOJzaR4g-3Af93ibG7n_hLAXBo_EfVt5pil3jC1MLFaxmenBjCwipp0h51nItZX7rgeTyy9Iz4zOl1IDXBbOoHOnzSNHU5-4VNqM3na8wBS3aCQq6UNMbjuB2SpXDtjPK2o7laNFrWcM9m4_CxGX88zAN62BThnqVJPGn-oOoj_HgAu7laF5pa"/>
+</div>
+<h4 class="text-[0.7rem] font-bold text-on-surface leading-tight">Critical Care Nursing</h4>
+<p class="text-[0.6rem] text-outline mt-0.5">24/7 Professional monitoring</p>
+<p class="text-[0.7rem] font-black text-primary mt-2">₹2,499/day</p>
+</div>
+<div class="flex-shrink-0 w-40 bg-surface-container-lowest border border-outline-variant/10 p-2">
+<div class="h-24 bg-[#e9d5ff] mb-2 overflow-hidden relative rounded-sm">
+<img alt="Post-Op Physiotherapy" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDirR2b1KpTWNWJ0R__fgeQrYXHnkjJ3_9e9yJBT8GkiL4FnjfHyoNlWDI0HI6YiTAUzut7uX2SNBm8-gGqhcAP1rLIcyPNvGB4c-RclFcFCpLMfS6TfWN-yU6ffCPiNy4RFrRdGsz0w-eI4a3LH45UdVcLcC5laFsRJOiYGWsGSa-Ikx6YRav7A6Dvj7_-nLE7rXtbN4sHvxywuyDBYqwqYBgATQxzIqZDev7FMaN_gMZ71mn9ReYc5UBvkuop28NLVfZ1mt2QK9JR"/>
+</div>
+<h4 class="text-[0.7rem] font-bold text-on-surface leading-tight">Post-Op Physiotherapy</h4>
+<p class="text-[0.6rem] text-outline mt-0.5">Customized recovery plans</p>
+<p class="text-[0.7rem] font-black text-primary mt-2">₹850/session</p>
+</div>
+<div class="flex-shrink-0 w-40 bg-surface-container-lowest border border-outline-variant/10 p-2">
+<div class="h-24 bg-[#f3e8ff] mb-2 overflow-hidden relative rounded-sm">
+<img alt="Home Sample Pickup" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0CCqZJhvqfr9-RaCUqHZhOwhn3VmVJJW-jhjZhKfsM3uoQ_8xM6zKwI0WCLqnqcRfqqsC1BOn5t2AWMH7erDsW9tNinW6B8nwbUtZdT4J_4yMr8A2mNOyY_CiZD404Hq3UBlzOoCK6Zgc85sjYYuy3woLbEtS5YNqZVEtIhf10zftZkUBc_ISFPKYuu3WqiEW2H4hytW3drs7ChqTUHqEes8p-rZEY3iWwHuZv_eEZG2HMY1hBM_uLelKWSTnd1oLDYjSwGMELGQ1"/>
+</div>
+<h4 class="text-[0.7rem] font-bold text-on-surface leading-tight">Home Sample Pickup</h4>
+<p class="text-[0.6rem] text-outline mt-0.5">NABL accredited results</p>
+<p class="text-[0.7rem] font-black text-primary mt-2">FREE</p>
+</div>
+</div>
+</section>
+<!-- Insights & Recommendations -->
+<section class="bg-surface-container-high/50 p-3 rounded-sm border border-outline-variant/10">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-sm">psychology</span>
+<h2 class="text-[0.65rem] font-black text-on-surface uppercase tracking-[0.2em]">Health Intelligence Engine</h2>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-3 p-2 bg-white rounded-sm border border-outline-variant/5">
+<div class="bg-primary/10 p-1.5 text-primary">
+<span class="material-symbols-outlined text-sm">medication</span>
+</div>
+<div class="flex-1">
+<p class="text-[0.7rem] font-bold text-on-surface">Medication Adherence</p>
+<p class="text-[0.6rem] text-on-surface-variant">Metformin 500mg dose scheduled for 8:00 PM</p>
+</div>
+<button class="text-[0.6rem] font-black text-primary uppercase border border-primary/20 px-2 py-1 rounded-sm">Mark Taken</button>
+</div>
+<div class="flex items-center gap-3 p-2 bg-white rounded-sm border border-outline-variant/5">
+<div class="bg-tertiary/10 p-1.5 text-tertiary">
+<span class="material-symbols-outlined text-sm">tips_and_updates</span>
+</div>
+<div class="flex-1">
+<p class="text-[0.7rem] font-bold text-on-surface">Clinical Observation</p>
+<p class="text-[0.6rem] text-on-surface-variant">Step count is 30% lower than your 7-day baseline.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-stretch px-0 pb-safe h-14 bg-[#ffffff] dark:bg-[#141218] border-t border-[#cbc4d3]/20 shadow-[0px_-4px_20px_rgba(126,96,191,0.06)]">
+<div class="flex flex-col items-center justify-center bg-[#7e60bf] text-white rounded-sm py-1 w-full transition-transform duration-150 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-tighter uppercase mt-0.5">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#49454f] dark:text-[#cac4d0] py-1 w-full transition-transform duration-150 ease-in-out cursor-pointer hover:bg-[#f5f2fa] dark:hover:bg-[#2b2930]">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-tighter uppercase mt-0.5">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#49454f] dark:text-[#cac4d0] py-1 w-full transition-transform duration-150 ease-in-out cursor-pointer hover:bg-[#f5f2fa] dark:hover:bg-[#2b2930]">
+<span class="material-symbols-outlined">description</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-tighter uppercase mt-0.5">Records</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#49454f] dark:text-[#cac4d0] py-1 w-full transition-transform duration-150 ease-in-out cursor-pointer hover:bg-[#f5f2fa] dark:hover:bg-[#2b2930]">
+<span class="material-symbols-outlined">e911_emergency</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-tighter uppercase mt-0.5">Emergency</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#49454f] dark:text-[#cac4d0] py-1 w-full transition-transform duration-150 ease-in-out cursor-pointer hover:bg-[#f5f2fa] dark:hover:bg-[#2b2930]">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-tighter uppercase mt-0.5">Profile</span>
+</div>
+</nav>
+</body></html>

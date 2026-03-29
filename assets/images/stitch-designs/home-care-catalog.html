@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Med Monolith - Home Care Service Catalog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+            font-size: 20px;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "surface-tint": "#6a4daa",
+                "error-container": "#ffdad6",
+                "on-tertiary-fixed-variant": "#503d6f",
+                "secondary-container": "#eaddff",
+                "surface-container-highest": "#e4e1e9",
+                "tertiary": "#635083",
+                "on-tertiary": "#ffffff",
+                "on-background": "#1b1b21",
+                "surface-container": "#efedf5",
+                "tertiary-container": "#7c689d",
+                "surface-container-low": "#f5f2fa",
+                "outline": "#7a7582",
+                "on-error": "#ffffff",
+                "primary": "#6547a4",
+                "on-secondary": "#ffffff",
+                "on-primary-container": "#fcf5ff",
+                "primary-fixed": "#eaddff",
+                "primary-container": "#7e60bf",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-high": "#e9e7ef",
+                "primary-fixed-dim": "#d2bcff",
+                "on-primary-fixed-variant": "#523391",
+                "secondary-fixed": "#eaddff",
+                "on-secondary-fixed": "#1f1730",
+                "tertiary-fixed": "#ecdcff",
+                "tertiary-fixed-dim": "#d3bcf7",
+                "surface-variant": "#e4e1e9",
+                "secondary": "#635a76",
+                "on-primary-fixed": "#24005a",
+                "background": "#fbf8ff",
+                "on-tertiary-fixed": "#231141",
+                "on-secondary-fixed-variant": "#4b425d",
+                "on-secondary-container": "#69607c",
+                "error": "#ba1a1a",
+                "on-primary": "#ffffff",
+                "inverse-surface": "#303036",
+                "surface-dim": "#dbd9e1",
+                "inverse-on-surface": "#f2eff7",
+                "surface": "#fbf8ff",
+                "on-surface": "#1b1b21",
+                "on-error-container": "#93000a",
+                "on-surface-variant": "#494551",
+                "surface-bright": "#fbf8ff",
+                "secondary-fixed-dim": "#cdc1e2",
+                "outline-variant": "#cbc4d3",
+                "on-tertiary-container": "#fdf5ff",
+                "inverse-primary": "#d2bcff"
+              },
+              fontFamily: {
+                "headline": ["Inter"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-20">
+<!-- Top App Bar -->
+<header class="bg-[#fbf8ff] dark:bg-[#1b1b21] flex justify-between items-center w-full px-4 h-12 sticky top-0 z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#6547a4] dark:text-[#d2bcff]" data-icon="clinical_notes">clinical_notes</span>
+<h1 class="font-['Inter'] font-black tracking-tighter text-lg uppercase text-[#6547a4] dark:text-[#d2bcff]">MED MONOLITH</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-[#49454f] dark:text-[#cac4d0] hover:bg-[#efedf5] p-1 rounded-sm transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-[#49454f] dark:text-[#cac4d0] hover:bg-[#efedf5] p-1 rounded-sm transition-colors" data-icon="search">search</button>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 pt-4">
+<!-- Search & Filter Section -->
+<section class="mb-6 space-y-4">
+<div class="relative group">
+<input class="w-full h-10 bg-surface-container-low border-none focus:ring-1 focus:ring-primary/20 rounded-sm pl-10 pr-4 text-sm font-medium placeholder:text-on-surface-variant/50" placeholder="Search home care services..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant/70" data-icon="search">search</span>
+</div>
+<div class="flex gap-2 overflow-x-auto hide-scrollbar pb-1">
+<button class="bg-primary text-on-primary px-3 py-1.5 rounded-sm text-xs font-bold whitespace-nowrap flex items-center gap-1.5">
+<span class="material-symbols-outlined !text-[14px]" data-icon="grid_view">grid_view</span> All Services
+                </button>
+<button class="bg-surface-container-highest text-on-surface-variant px-3 py-1.5 rounded-sm text-xs font-semibold whitespace-nowrap hover:bg-surface-container-high transition-colors">Nursing</button>
+<button class="bg-surface-container-highest text-on-surface-variant px-3 py-1.5 rounded-sm text-xs font-semibold whitespace-nowrap hover:bg-surface-container-high transition-colors">Physio</button>
+<button class="bg-surface-container-highest text-on-surface-variant px-3 py-1.5 rounded-sm text-xs font-semibold whitespace-nowrap hover:bg-surface-container-high transition-colors">Medical Equipment</button>
+<button class="bg-surface-container-highest text-on-surface-variant px-3 py-1.5 rounded-sm text-xs font-semibold whitespace-nowrap hover:bg-surface-container-high transition-colors">Diagnostics</button>
+<button class="bg-surface-container-highest text-on-surface-variant px-3 py-1.5 rounded-sm text-xs font-semibold whitespace-nowrap hover:bg-surface-container-high transition-colors">Caregivers</button>
+</div>
+</section>
+<!-- Featured Banner -->
+<section class="mb-8">
+<div class="relative w-full h-48 md:h-64 rounded-sm overflow-hidden bg-primary-container group">
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="Modern high-tech home ICU setup with patient monitor, hospital bed, and medical equipment in a clean lavender-lit room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkwKxsUJzfAsjEcML-9F7CN0YqAFlAVmhK8yLj5LoRdtrf-AkZptGouI4pOddGbVqh9yxuxko8lxlNbgJX29o3PilGoNQ4ECyI0F3Kf2Cq3iqETIODgNBSfgbXRbjUuid1rWP2xKvVgvb3ANYC7zrQsDGcnKWe0KZesH8FFMALTYRj9BX4l6XZvvRWWhgdRYwsBYygIFzRLW--wJDyczYZ4nS3q9Qo8RtoxK2UiFnWuTjiECGM50nd9x_ZihnKILcy_hm61fodyOkp"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent flex flex-col justify-center px-6 md:px-12 text-on-primary">
+<span class="bg-on-primary text-primary text-[10px] font-black px-2 py-0.5 w-fit rounded-sm mb-3 tracking-widest uppercase">Premium Service</span>
+<h2 class="text-2xl md:text-3xl font-black leading-tight tracking-tighter mb-2 max-w-md">PREMIUM HOME ICU SETUP</h2>
+<p class="text-xs md:text-sm font-medium opacity-90 max-w-xs mb-4">Complete critical care infrastructure with 24/7 specialist supervision and advanced monitoring equipment.</p>
+<button class="bg-surface-container-lowest text-primary px-4 py-2 rounded-sm text-xs font-bold w-fit shadow-sm hover:translate-y-[-1px] active:scale-95 transition-all">CONFIGURE SETUP</button>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Critical Care Nursing -->
+<div class="bg-surface-container-lowest p-4 rounded-sm flex flex-col justify-between shadow-[0px_4px_20px_rgba(126,96,191,0.06)] relative group border-l-2 border-primary">
+<div class="space-y-3">
+<div class="flex justify-between items-start">
+<div class="bg-primary-container/20 p-2 rounded-sm">
+<span class="material-symbols-outlined text-primary" data-icon="monitor_heart">monitor_heart</span>
+</div>
+<span class="text-[10px] font-bold text-primary px-2 py-0.5 bg-primary-fixed rounded-sm">AVAILABLE</span>
+</div>
+<div>
+<h3 class="font-bold text-sm tracking-tight text-on-surface uppercase">Critical Care Nursing</h3>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mt-1">Specialized ICU-trained nurses for round-the-clock monitoring and clinical intervention.</p>
+</div>
+<div class="flex items-center gap-4 py-2 border-y border-outline-variant/15">
+<div class="flex flex-col">
+<span class="text-[9px] uppercase font-bold text-outline tracking-wider">Shift</span>
+<span class="text-xs font-semibold">12h / 24h</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant/15 pl-4">
+<span class="text-[9px] uppercase font-bold text-outline tracking-wider">Rate</span>
+<span class="text-xs font-black text-primary">$120 <span class="text-[10px] font-medium text-on-surface-variant">/ day</span></span>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full bg-surface-container-high hover:bg-primary hover:text-on-primary py-2 text-[11px] font-bold uppercase tracking-widest transition-all">Book Service</button>
+</div>
+<!-- Post-Op Physiotherapy -->
+<div class="bg-surface-container-lowest p-4 rounded-sm flex flex-col justify-between shadow-[0px_4px_20px_rgba(126,96,191,0.06)] border-l-2 border-transparent hover:border-primary transition-colors">
+<div class="space-y-3">
+<div class="flex justify-between items-start">
+<div class="bg-secondary-container/30 p-2 rounded-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="exercise">exercise</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-sm tracking-tight text-on-surface uppercase">Post-Op Physiotherapy</h3>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mt-1">Tailored recovery programs for orthopedic and cardiac surgical cases by certified therapists.</p>
+</div>
+<div class="flex items-center gap-4 py-2 border-y border-outline-variant/15">
+<div class="flex flex-col">
+<span class="text-[9px] uppercase font-bold text-outline tracking-wider">Duration</span>
+<span class="text-xs font-semibold">45-60 Mins</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant/15 pl-4">
+<span class="text-[9px] uppercase font-bold text-outline tracking-wider">Rate</span>
+<span class="text-xs font-black text-primary">$45 <span class="text-[10px] font-medium text-on-surface-variant">/ session</span></span>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full bg-surface-container-high hover:bg-primary hover:text-on-primary py-2 text-[11px] font-bold uppercase tracking-widest transition-all">Schedule Visit</button>
+</div>
+<!-- Lab at Home -->
+<div class="bg-surface-container-lowest p-4 rounded-sm flex flex-col justify-between shadow-[0px_4px_20px_rgba(126,96,191,0.06)] border-l-2 border-transparent">
+<div class="space-y-3">
+<div class="flex justify-between items-start">
+<div class="bg-tertiary-container/20 p-2 rounded-sm">
+<span class="material-symbols-outlined text-tertiary" data-icon="biotech">biotech</span>
+</div>
+<div class="flex gap-1">
+<span class="text-[9px] font-bold bg-green-100 text-green-700 px-1.5 py-0.5 rounded-sm">NABL</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-sm tracking-tight text-on-surface uppercase">Lab at Home</h3>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mt-1">Convenient blood and sample collection by phlebotomists. Reports delivered digitally in 6-12 hours.</p>
+</div>
+<div class="flex items-center gap-4 py-2 border-y border-outline-variant/15">
+<div class="flex flex-col">
+<span class="text-[9px] uppercase font-bold text-outline tracking-wider">Pickup</span>
+<span class="text-xs font-semibold">Within 90m</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant/15 pl-4">
+<span class="text-[9px] uppercase font-bold text-outline tracking-wider">Fee</span>
+<span class="text-xs font-black text-green-600 uppercase">Free Collection</span>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full bg-surface-container-high hover:bg-primary hover:text-on-primary py-2 text-[11px] font-bold uppercase tracking-widest transition-all">Order Lab Test</button>
+</div>
+<!-- Elderly Care -->
+<div class="bg-surface-container-lowest p-4 rounded-sm flex flex-col justify-between shadow-[0px_4px_20px_rgba(126,96,191,0.06)] border-l-2 border-transparent">
+<div class="space-y-3">
+<div class="flex justify-between items-start">
+<div class="bg-primary-container/10 p-2 rounded-sm">
+<span class="material-symbols-outlined text-primary-container" data-icon="volunteer_activism">volunteer_activism</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-sm tracking-tight text-on-surface uppercase">Elderly Care</h3>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mt-1">Compassionate daily assistance focusing on mobility, hygiene, and companionship for seniors.</p>
+</div>
+<div class="grid grid-cols-2 gap-2 py-2 border-y border-outline-variant/15">
+<div class="flex flex-col">
+<span class="text-[9px] uppercase font-bold text-outline tracking-wider">Staff</span>
+<span class="text-xs font-semibold">General Caregiver</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant/15 pl-4">
+<span class="text-[9px] uppercase font-bold text-outline tracking-wider">Plan</span>
+<span class="text-xs font-black text-primary">Starts at $650</span>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full bg-surface-container-high hover:bg-primary hover:text-on-primary py-2 text-[11px] font-bold uppercase tracking-widest transition-all">Inquiry</button>
+</div>
+<!-- Medical Equipment Rental -->
+<div class="bg-surface-container-lowest p-4 rounded-sm flex flex-col justify-between shadow-[0px_4px_20px_rgba(126,96,191,0.06)] border-l-2 border-transparent md:col-span-2">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-1 space-y-3">
+<div class="flex justify-between items-start">
+<div class="bg-on-surface-variant/10 p-2 rounded-sm">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="medical_services">medical_services</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-sm tracking-tight text-on-surface uppercase">Medical Equipment Rental</h3>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mt-1">High-grade hospital equipment for home use. Free delivery, installation, and technical orientation.</p>
+</div>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="text-[9px] font-bold border border-outline-variant/30 px-2 py-1 rounded-full uppercase text-on-surface-variant">Oxygen Concentrators</span>
+<span class="text-[9px] font-bold border border-outline-variant/30 px-2 py-1 rounded-full uppercase text-on-surface-variant">BIPAP/CPAP</span>
+<span class="text-[9px] font-bold border border-outline-variant/30 px-2 py-1 rounded-full uppercase text-on-surface-variant">Hospital Beds</span>
+<span class="text-[9px] font-bold border border-outline-variant/30 px-2 py-1 rounded-full uppercase text-on-surface-variant">Wheelchairs</span>
+</div>
+</div>
+<div class="md:w-48 bg-surface-container p-3 rounded-sm flex flex-col justify-center">
+<div class="flex flex-col items-center text-center">
+<span class="text-[10px] uppercase font-black text-primary mb-1">Weekly Special</span>
+<span class="text-2xl font-black text-on-surface">5-Day</span>
+<span class="text-[10px] font-bold text-on-surface-variant">Trial Period</span>
+<button class="mt-4 bg-primary text-on-primary text-[10px] font-bold py-2 px-4 rounded-sm w-full uppercase tracking-tighter">View Inventory</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Density Feature: Latest Records / Quick Stats -->
+<section class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
+<div class="bg-surface-container-low p-3 rounded-sm">
+<p class="text-[9px] uppercase font-bold text-outline tracking-widest mb-1">Active Cases</p>
+<div class="flex items-end gap-2">
+<span class="text-xl font-black text-on-surface leading-none">124</span>
+<span class="text-[9px] text-green-600 font-bold mb-0.5">+4%</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-sm">
+<p class="text-[9px] uppercase font-bold text-outline tracking-widest mb-1">Caregivers</p>
+<div class="flex items-end gap-2">
+<span class="text-xl font-black text-on-surface leading-none">82</span>
+<span class="text-[9px] text-primary font-bold mb-0.5">Online</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-sm">
+<p class="text-[9px] uppercase font-bold text-outline tracking-widest mb-1">Avg. Response</p>
+<div class="flex items-end gap-2">
+<span class="text-xl font-black text-on-surface leading-none">18m</span>
+<span class="text-[9px] text-tertiary font-bold mb-0.5">Global</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-sm">
+<p class="text-[9px] uppercase font-bold text-outline tracking-widest mb-1">Service Rating</p>
+<div class="flex items-end gap-2">
+<span class="text-xl font-black text-on-surface leading-none">4.92</span>
+<div class="flex mb-1">
+<span class="material-symbols-outlined !text-[10px] text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full bg-[#fbf8ff] dark:bg-[#1b1b21] flex justify-around items-center px-2 py-2 z-50 border-t border-[#cbc4d3]/15 shadow-[0px_-4px_20px_rgba(126,96,191,0.06)]">
+<a class="flex flex-col items-center justify-center text-[#6547a4] dark:text-[#d2bcff] bg-[#e4e1e9] dark:bg-[#49454f] rounded-sm px-3 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="font-['Inter'] font-medium text-[10px] tracking-tight">Catalog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#49454f] dark:text-[#cac4d0] opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-['Inter'] font-medium text-[10px] tracking-tight">Patients</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#49454f] dark:text-[#cac4d0] opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-['Inter'] font-medium text-[10px] tracking-tight">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#49454f] dark:text-[#cac4d0] opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-['Inter'] font-medium text-[10px] tracking-tight">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button -->
+<button class="fixed bottom-20 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-95 transition-transform z-40">
+<span class="material-symbols-outlined !text-2xl" data-icon="support_agent">support_agent</span>
+</button>
+</body></html>

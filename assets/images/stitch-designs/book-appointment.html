@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MED_MONOLITH | Clinical Appointment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#f2eff7",
+              "primary-fixed": "#eaddff",
+              "on-secondary": "#ffffff",
+              "primary-container": "#7e60bf",
+              "on-tertiary": "#ffffff",
+              "surface-tint": "#6a4daa",
+              "on-tertiary-container": "#fdf5ff",
+              "surface-variant": "#e4e1e9",
+              "tertiary-fixed": "#ecdcff",
+              "on-primary": "#ffffff",
+              "surface-container-highest": "#e4e1e9",
+              "surface": "#fbf8ff",
+              "on-primary-fixed-variant": "#523391",
+              "on-primary-container": "#fcf5ff",
+              "surface-bright": "#fbf8ff",
+              "background": "#fbf8ff",
+              "on-background": "#1b1b21",
+              "tertiary": "#635083",
+              "on-error-container": "#93000a",
+              "inverse-primary": "#d2bcff",
+              "on-secondary-container": "#69607c",
+              "inverse-surface": "#303036",
+              "on-tertiary-fixed": "#231141",
+              "secondary-container": "#eaddff",
+              "outline": "#7a7582",
+              "on-tertiary-fixed-variant": "#503d6f",
+              "on-surface": "#1b1b21",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#7c689d",
+              "on-secondary-fixed-variant": "#4b425d",
+              "surface-container-low": "#f5f2fa",
+              "on-primary-fixed": "#24005a",
+              "on-surface-variant": "#494551",
+              "secondary-fixed": "#eaddff",
+              "outline-variant": "#cbc4d3",
+              "error": "#ba1a1a",
+              "secondary": "#635a76",
+              "tertiary-fixed-dim": "#d3bcf7",
+              "primary-fixed-dim": "#d2bcff",
+              "on-secondary-fixed": "#1f1730",
+              "primary": "#6547a4",
+              "surface-dim": "#dbd9e1",
+              "surface-container-high": "#e9e7ef",
+              "secondary-fixed-dim": "#cdc1e2",
+              "surface-container": "#efedf5",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-4 h-12 w-full bg-[#fbf8ff] dark:bg-slate-950 transition-all duration-150">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="Doctor Profile" class="w-full h-full object-cover" data-alt="professional portrait of a male doctor in clinical attire with soft lavender studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNEvPkBA1m-rOkqI8SVMldy4mq6K5H8o1WyXRSBhgkG5mzQGFgDl-yAqMWOyTAii3BwEqb4BDfpHeXm4JSv12nqAXECpMeo6yqDEr2yorK469EPM-I9892Wqlj5LH55kkIJPJgZ1kRkNUbOEYUChyZGD_W-58JBEb0XZndY_vHKn_gKk-SJOsdQ0cS-t52yRTw5-t8ipcRwS29DRq-QLJehXBkE84QGqCcuEQRMSGuG5NuXrHahgXrJgpYR9Qj5BcVVz1JG-Qnd3ih"/>
+</div>
+<span class="text-lg font-black tracking-tighter text-[#6547a4] dark:text-[#7e60bf]">MED_MONOLITH</span>
+</div>
+<div class="flex gap-2">
+<button class="material-symbols-outlined text-slate-500 hover:bg-[#efedf5] p-1.5 rounded-sm transition-all active:scale-95">share</button>
+<button class="material-symbols-outlined text-[#6547a4] hover:bg-[#efedf5] p-1.5 rounded-sm transition-all active:scale-95">notifications</button>
+</div>
+</header>
+<main class="pt-16 px-4 space-y-4 max-w-2xl mx-auto">
+<!-- Doctor Header Card -->
+<section class="bg-surface-container-lowest rounded-lg p-4 shadow-[0px_4px_20px_rgba(126,96,191,0.06)] flex gap-4 items-start border border-outline-variant/10">
+<div class="w-24 h-24 bg-surface-container rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Dr. Alistair Vance" class="w-full h-full object-cover" data-alt="3D clay style illustration of a senior male doctor with grey hair wearing a white lab coat and stethoscope" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW64mFUF8wRVLAYonNOLIMslkDB-egnIyqqVJuWIBt9PS0v318YeqLt9usH0-0ncb7lOEv7D3g3KUu-0fYxBazzg4L5f4VuBF7cxRQ0YxWQfF0p-ILVuRL8agPGcPQWE9d7N2nRnLrsuGalbwoJsTHN5HCdouwnkrdh3_CfrasfbF-KAeh-VZuQ5OLSSYugipGoZos2uG-CTRoy0C4pbkKqPoWur-lpYtxALIpb-_DqlI4ZiVzT44ffJB4QmIblCazaHiLNzE96k-_"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h1 class="text-xl font-bold tracking-tight text-on-surface leading-tight">Dr. Alistair Vance</h1>
+<p class="text-primary font-medium text-sm">Senior Neurosurgeon</p>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-1.5 py-0.5 rounded-sm">
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[10px] font-bold text-on-surface">4.9</span>
+</div>
+</div>
+<div class="mt-3 flex gap-2">
+<span class="bg-surface-container text-on-surface-variant text-[10px] font-semibold px-2 py-1 rounded-sm uppercase tracking-wider">Neurology</span>
+<span class="bg-surface-container text-on-surface-variant text-[10px] font-semibold px-2 py-1 rounded-sm uppercase tracking-wider">Surgery</span>
+</div>
+</div>
+</section>
+<!-- Clinical Summary Stats -->
+<section class="grid grid-cols-3 gap-2">
+<div class="bg-surface-container-low p-3 rounded-lg text-center border-b-2 border-primary/10">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter mb-1">Experience</p>
+<p class="text-lg font-black text-primary leading-none">22+</p>
+<p class="text-[9px] font-medium text-on-surface-variant">Years</p>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg text-center border-b-2 border-primary/10">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter mb-1">Patients</p>
+<p class="text-lg font-black text-primary leading-none">8.5k+</p>
+<p class="text-[9px] font-medium text-on-surface-variant">Treated</p>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg text-center border-b-2 border-primary/10">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter mb-1">Success</p>
+<p class="text-lg font-black text-primary leading-none">98.2%</p>
+<p class="text-[9px] font-medium text-on-surface-variant">Rate</p>
+</div>
+</section>
+<!-- About Section -->
+<section class="bg-surface-container-lowest p-4 rounded-lg border border-outline-variant/10">
+<h2 class="text-xs font-black text-on-surface uppercase tracking-widest mb-2 flex items-center gap-2">
+<span class="w-1 h-3 bg-primary"></span>
+                About the Physician
+            </h2>
+<p class="text-sm text-on-surface-variant leading-relaxed font-medium">
+                Dr. Alistair Vance is a world-renowned specialist in complex neurovascular interventions. With over two decades of clinical mastery at the Clinical Monolith Institute, he focuses on minimally invasive brain surgery and advanced neurological diagnostics.
+            </p>
+</section>
+<!-- Availability & Scheduling -->
+<section class="space-y-4">
+<div class="flex justify-between items-center">
+<h2 class="text-xs font-black text-on-surface uppercase tracking-widest flex items-center gap-2">
+<span class="w-1 h-3 bg-primary"></span>
+                    Select Date
+                </h2>
+<button class="text-[10px] font-bold text-primary uppercase hover:underline">View Calendar</button>
+</div>
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
+<button class="flex-shrink-0 w-14 h-16 rounded-sm bg-primary text-on-primary flex flex-col items-center justify-center transition-all active:scale-95 shadow-md">
+<span class="text-[10px] font-bold uppercase opacity-80">Mon</span>
+<span class="text-lg font-black">12</span>
+</button>
+<button class="flex-shrink-0 w-14 h-16 rounded-sm bg-surface-container-lowest text-on-surface border border-outline-variant/20 flex flex-col items-center justify-center transition-all hover:bg-surface-container active:scale-95">
+<span class="text-[10px] font-bold uppercase text-slate-400">Tue</span>
+<span class="text-lg font-black">13</span>
+</button>
+<button class="flex-shrink-0 w-14 h-16 rounded-sm bg-surface-container-lowest text-on-surface border border-outline-variant/20 flex flex-col items-center justify-center transition-all hover:bg-surface-container active:scale-95">
+<span class="text-[10px] font-bold uppercase text-slate-400">Wed</span>
+<span class="text-lg font-black">14</span>
+</button>
+<button class="flex-shrink-0 w-14 h-16 rounded-sm bg-surface-container-lowest text-on-surface border border-outline-variant/20 flex flex-col items-center justify-center transition-all hover:bg-surface-container active:scale-95">
+<span class="text-[10px] font-bold uppercase text-slate-400">Thu</span>
+<span class="text-lg font-black">15</span>
+</button>
+<button class="flex-shrink-0 w-14 h-16 rounded-sm bg-surface-container-lowest text-on-surface border border-outline-variant/20 flex flex-col items-center justify-center transition-all hover:bg-surface-container active:scale-95">
+<span class="text-[10px] font-bold uppercase text-slate-400">Fri</span>
+<span class="text-lg font-black">16</span>
+</button>
+<button class="flex-shrink-0 w-14 h-16 rounded-sm bg-surface-container-lowest text-on-surface border border-outline-variant/20 flex flex-col items-center justify-center transition-all hover:bg-surface-container active:scale-95">
+<span class="text-[10px] font-bold uppercase text-slate-400">Sat</span>
+<span class="text-lg font-black">17</span>
+</button>
+</div>
+<div class="space-y-2">
+<h3 class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Available Slots</h3>
+<div class="grid grid-cols-4 gap-2">
+<button class="py-2.5 rounded-sm bg-surface-container-lowest border border-outline-variant/20 text-on-surface text-[11px] font-bold hover:bg-primary hover:text-white transition-colors">09:00 AM</button>
+<button class="py-2.5 rounded-sm bg-primary text-on-primary text-[11px] font-bold shadow-sm">10:30 AM</button>
+<button class="py-2.5 rounded-sm bg-surface-container-lowest border border-outline-variant/20 text-on-surface text-[11px] font-bold hover:bg-primary hover:text-white transition-colors">01:00 PM</button>
+<button class="py-2.5 rounded-sm bg-surface-container-lowest border border-outline-variant/20 text-on-surface text-[11px] font-bold hover:bg-primary hover:text-white transition-colors">02:15 PM</button>
+<button class="py-2.5 rounded-sm bg-surface-container-lowest border border-outline-variant/20 text-on-surface text-[11px] font-bold hover:bg-primary hover:text-white transition-colors">03:30 PM</button>
+<button class="py-2.5 rounded-sm bg-surface-container-lowest border border-outline-variant/20 text-on-surface text-[11px] font-bold opacity-40 cursor-not-allowed line-through">04:45 PM</button>
+<button class="py-2.5 rounded-sm bg-surface-container-lowest border border-outline-variant/20 text-on-surface text-[11px] font-bold hover:bg-primary hover:text-white transition-colors">05:30 PM</button>
+<button class="py-2.5 rounded-sm bg-surface-container-lowest border border-outline-variant/20 text-on-surface text-[11px] font-bold hover:bg-primary hover:text-white transition-colors">06:00 PM</button>
+</div>
+</div>
+</section>
+<!-- Location & Contact -->
+<section class="bg-surface-container-lowest rounded-lg border border-outline-variant/10 overflow-hidden">
+<div class="p-4 flex justify-between items-center">
+<div class="space-y-0.5">
+<h2 class="text-xs font-black text-on-surface uppercase tracking-widest">Clinical Location</h2>
+<p class="text-sm text-on-surface-variant font-medium">88th Central Neurological Wing, NY</p>
+</div>
+<button class="material-symbols-outlined text-primary bg-primary-container/10 p-2 rounded-sm">directions</button>
+</div>
+<div class="h-28 w-full bg-surface-container relative">
+<img alt="Map View" class="w-full h-full object-cover grayscale opacity-60" data-alt="clean map view of a city grid with a single purple marker showing a medical building location" data-location="New York City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbTV3Z-O91fyHHeBtlpdE9bJU39hqizCVR9EObZ6SOOl9-jHJCPndJdIIt2aE8zg298fyRLk20AScOJH-mrAz3cKYkeynL0Y7pzDlXuXQOiZ7FWeSJS3SOgo3vVZEqy4PudSjDTtyd-q4OB8XARL6U-d5f0K9YoMqoyIpp1ATSLNJBRjTg3S0GZcbxX9zPTzbRwVeOfrQAP2swvYJoE27Rbr-XP7mH9g_gDW4iWAJYalTQoY0vqdOD-XwfxpgqpC0qkv1Dj498GyRL"/>
+<div class="absolute inset-0 bg-primary/5 pointer-events-none"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Navigation & CTA -->
+<div class="fixed bottom-0 left-0 w-full z-50">
+<!-- Floating Confirm Button -->
+<div class="px-4 pb-4">
+<button class="w-full h-12 bg-gradient-to-r from-primary to-primary-container text-on-primary font-black uppercase tracking-tighter text-sm rounded-sm shadow-xl flex items-center justify-center gap-2 transition-transform active:scale-[0.98]">
+<span>Confirm Booking</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+<!-- BottomNavBar (Hidden in booking context usually, but included as per shell rules) -->
+<nav class="hidden md:hidden w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex justify-around items-center py-2 px-1 border-t border-[#cbc4d3]/15 shadow-[0px_-4px_20px_rgba(126,96,191,0.06)]">
+<div class="flex flex-col items-center justify-center text-slate-400 font-medium">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] tracking-tight">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#6547a4] font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="text-[10px] tracking-tight">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 font-medium">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px] tracking-tight">Records</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 font-medium">
+<span class="material-symbols-outlined">emergency</span>
+<span class="text-[10px] tracking-tight">Emergency</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 font-medium">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] tracking-tight">Profile</span>
+</div>
+</nav>
+</div>
+</body></html>
