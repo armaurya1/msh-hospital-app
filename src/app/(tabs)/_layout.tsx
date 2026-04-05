@@ -163,6 +163,13 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="chat"
+        options={{
+          href: null, // Hidden - accessible via navigation
+          title: 'Chat',
+        }}
+      />
+      <Tabs.Screen
         name="emergency"
         options={{
           title: 'Emergency',

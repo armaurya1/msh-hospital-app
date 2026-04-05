@@ -75,13 +75,10 @@ export default function BookAppointmentScreen() {
       {/* TopAppBar */}
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <View style={styles.headerAvatar}>
-            <Image
-              source={{ uri: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNEvPkBA1m-rOkqI8SVMldy4mq6K5H8o1WyXRSBhgkG5mzQGFgDl-yAqMWOyTAii3BwEqb4BDfpHeXm4JSv12nqAXECpMeo6yqDEr2yorK469EPM-I9892Wqlj5LH55kkIJPJgZ1kRkNUbOEYUChyZGD_W-58JBEb0XZndY_vHKn_gKk-SJOsdQ0cS-t52yRTw5-t8ipcRwS29DRq-QLJehXBkE84QGqCcuEQRMSGuG5NuXrHahgXrJgpYR9Qj5BcVVz1JG-Qnd3ih' }}
-              style={styles.headerAvatarImage}
-            />
-          </View>
-          <Text style={styles.headerTitle}>MED_MONOLITH</Text>
+          <TouchableOpacity onPress={() => router.back()} style={styles.headerIconBtn}>
+            <Ionicons name="arrow-back" size={22} color={colors.primary} />
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>Book Appointment</Text>
         </View>
         <View style={styles.headerRight}>
           <TouchableOpacity style={styles.headerIconBtn}>
@@ -154,9 +151,7 @@ export default function BookAppointmentScreen() {
             <View style={styles.sectionIndicator} />
             <Text style={styles.sectionTitle}>About the Physician</Text>
           </View>
-          <Text style={styles.aboutText}>
-            Dr. Alistair Vance is a world-renowned specialist in complex neurovascular interventions. With over two decades of clinical mastery at the Clinical Monolith Institute, he focuses on minimally invasive brain surgery and advanced neurological diagnostics.
-          </Text>
+          <Text style={styles.aboutText}>Dr. Alistair Vance is a world-renowned specialist in complex neurovascular interventions. With over two decades of clinical mastery at the Clinical Monolith Institute, he focuses on minimally invasive brain surgery and advanced neurological diagnostics.</Text>
         </View>
 
         {/* Availability & Scheduling */}
@@ -555,9 +550,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 8,
+    justifyContent: 'space-between',
   },
   slotBtn: {
-    width: (width - 32 - 24) / 4,
+    width: (width - 32 - 32 - 24) / 4,
     paddingVertical: 12,
     borderRadius: 10,
     backgroundColor: colors.surfaceContainerLowest,

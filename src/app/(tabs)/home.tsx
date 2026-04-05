@@ -15,6 +15,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import LabSampleIllustration from '@/assets/images/illustration/lab-sample.svg';
+import { MshLogo } from '@/components/msh-logo';
 
 const { width } = Dimensions.get('window');
 
@@ -87,16 +88,11 @@ export default function HomeDashboard() {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <View style={styles.logoContainer}>
-            <Ionicons name="medical" size={22} color={colors.white} />
-          </View>
+          <MshLogo width={28} height={28} fill={colors.primary} />
           <Text style={styles.headerTitle}>MSH Hospital</Text>
         </View>
         <View style={styles.headerRight}>
-          <TouchableOpacity style={styles.headerIconBtn}>
-            <Ionicons name="notifications-outline" size={22} color={colors.onSurface} />
-          </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => router.push('/(tabs)/profile')}>
             <Image
               source={{ uri: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB44zVo7LJ5EeVncIKnVECJMtW_zy7dGx3LwCg1oCqQx5jNqOTLZZAIHpTjbIcCJDTOkL-Nds_OPa0SECoK4iRPiWhvXissZgFM0bF0eSI9-2Qn8msWBzM_jv7jdM1nfjFhODBQOpZQyG6oxGudIYklWhrk4r_unGXYV1qPdFTJSxB5z0Thzwe78jJhNaOn-kcBRE33HbEXCNFwfgn14L9nFPnkufGB6KjKUaf2NfxGt0cjP_uzMR44lpQ7CvIKy5IIw6z3QNvGvTyQ' }}
               style={styles.avatar}
@@ -148,7 +144,7 @@ export default function HomeDashboard() {
             <QuickAction 
               icon="calendar-outline" 
               label="Book Appointment"
-              onPress={() => router.push('/(tabs)/book-appointment')}
+              onPress={() => router.push('/(tabs)/doctors')}
             />
             <QuickAction 
               icon="medkit-outline" 
@@ -163,6 +159,7 @@ export default function HomeDashboard() {
             <QuickAction 
               icon="videocam-outline" 
               label="Tele Consult"
+              onPress={() => router.push('/(tabs)/chat')}
             />
             <QuickAction 
               icon="document-text-outline" 
@@ -309,14 +306,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 12,
   },
-  logoContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 10,
-    backgroundColor: colors.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
   headerTitle: {
     fontSize: 18,
     fontWeight: '700',

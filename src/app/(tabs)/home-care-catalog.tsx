@@ -11,6 +11,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
+import { MshLogo } from '@/components/msh-logo';
 
 // Design colors from Stitch HTML - Lavender Clay Models
 const colors = {
@@ -60,7 +61,7 @@ const services: ServiceItem[] = [
     id: '1',
     title: 'CRITICAL CARE NURSING',
     description: 'Specialized ICU-trained nurses for round-the-clock monitoring and clinical intervention.',
-    icon: 'heart-pulse',
+    icon: 'pulse',
     iconColor: colors.primary,
     iconBg: `${colors.primaryContainer}33`,
     shiftLabel: 'SHIFT',
@@ -128,13 +129,10 @@ export default function HomeCareCatalogScreen() {
       {/* Top App Bar - h-12 sticky */}
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <Ionicons name="medical" size={20} color={colors.primary} />
-          <Text style={styles.headerTitle}>MED MONOLITH</Text>
+          <MshLogo width={28} height={28} fill={colors.primary} />
+          <Text style={styles.headerTitle}>MSH HOSPITAL</Text>
         </View>
         <View style={styles.headerRight}>
-          <TouchableOpacity style={styles.headerBtn}>
-            <Ionicons name="notifications-outline" size={20} color={colors.onSurfaceVariant} />
-          </TouchableOpacity>
           <TouchableOpacity style={styles.headerBtn}>
             <Ionicons name="search" size={20} color={colors.onSurfaceVariant} />
           </TouchableOpacity>
@@ -346,6 +344,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8, // gap-2
   },
+
   headerTitle: {
     fontSize: 18, // text-lg
     fontWeight: '900', // font-black
@@ -573,16 +572,16 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   serviceBtn: {
-    backgroundColor: colors.surfaceContainerHigh,
-    paddingVertical: 8, // py-2
-    borderRadius: 2,
+    backgroundColor: colors.primary,
+    paddingVertical: 10, // py-2
+    borderRadius: 8,
     marginTop: 16, // mt-4
     alignItems: 'center',
   },
   serviceBtnText: {
     fontSize: 11, // text-[11px]
     fontWeight: '700', // font-bold
-    color: colors.onSurface,
+    color: colors.surfaceContainerLowest,
     letterSpacing: 1.5, // tracking-widest
     textTransform: 'uppercase',
   },

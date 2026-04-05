@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Color palette from Stitch design
 const COLORS = {
@@ -114,7 +115,7 @@ export default function CartScreen() {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0) + (labTest ? 1 : 0);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top']}>
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity
@@ -252,7 +253,7 @@ export default function CartScreen() {
           <Ionicons name="chevron-forward" size={18} color="#fff" />
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

@@ -55,6 +55,7 @@ export function HospitalSplashScreen() {
         speed={1}
       />
 
+
       {/* Fade Overlay */}
       <Animated.View style={[styles.fadeOverlay, fadeStyle]} />
     </View>
@@ -84,4 +85,5 @@ const styles = StyleSheet.create({
     zIndex: 200,
     pointerEvents: 'none',
   },
+
 });

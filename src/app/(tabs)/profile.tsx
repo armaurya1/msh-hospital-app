@@ -13,6 +13,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
+import { MshLogo } from '@/components/msh-logo';
 
 const { width } = Dimensions.get('window');
 
@@ -40,10 +41,10 @@ const colors = {
 interface StatCardProps {
   label: string;
   value: string;
-  subtitle: string;
-  icon: keyof typeof Ionicons.glyphMap;
+  subtitle?: string;
+  icon?: keyof typeof Ionicons.glyphMap;
   borderColor: string;
-  subtitleColor: string;
+  subtitleColor?: string;
 }
 
 const StatCard: React.FC<StatCardProps> = ({
@@ -57,10 +58,12 @@ const StatCard: React.FC<StatCardProps> = ({
   <View style={[styles.statCard, { borderLeftColor: borderColor }]}>
     <Text style={styles.statLabel}>{label}</Text>
     <Text style={styles.statValue}>{value}</Text>
-    <View style={styles.statSubtitleRow}>
-      <Ionicons name={icon} size={12} color={subtitleColor} />
-      <Text style={[styles.statSubtitle, { color: subtitleColor }]}>{subtitle}</Text>
-    </View>
+    {subtitle && icon && subtitleColor && (
+      <View style={styles.statSubtitleRow}>
+        <Ionicons name={icon} size={12} color={subtitleColor} />
+        <Text style={[styles.statSubtitle, { color: subtitleColor }]}>{subtitle}</Text>
+      </View>
+    )}
   </View>
 );
 
@@ -128,17 +131,9 @@ export default function ProfileScreen() {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <Ionicons name="document-text" size={22} color={colors.primary} />
+          <MshLogo width={28} height={28} fill={colors.primary} />
           <Text style={styles.headerTitle}>MSH HOSPITAL</Text>
         </View>
-        <TouchableOpacity>
-          <Image
-            source={{
-              uri: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDQ2lMiEjskG26RX1Jm0zb2MEJkCskJTTJobGNxjnyc2GdBZVzk5zoNe0xCBJMcj09mWPzJDIwrLV3tg8bCOAhE5bNETT3pgIEGPKlyWm1FT4GLARBs_WA_xzTZKjLSA9yiQO3xxIG1ifXlCZKl8PbKxDRfvUpKNs9b_MHO1ZpgsYYYWZeXHDA97wCRV4Ni4KPWvwlXuvO7VvmAOXzt9Tf2WfJsoqSFO-RnFO5_o_2DHg52h5_Uzi89Xnpf4_28AysAgOKF1bQH4Bv-',
-            }}
-            style={styles.headerAvatar}
-          />
-        </TouchableOpacity>
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
@@ -166,6 +161,7 @@ export default function ProfileScreen() {
               <View style={styles.nameRow}>
                 <Text style={styles.profileName}>Mr. Alok Maurya</Text>
                 <View style={styles.premiumBadge}>
+                  <Ionicons name="diamond" size={10} color="#D4A017" />
                   <Text style={styles.premiumText}>PREMIUM MEMBER</Text>
                 </View>
               </View>
@@ -204,10 +200,7 @@ export default function ProfileScreen() {
           <StatCard
             label="Insurance Status"
             value="Full Access"
-            subtitle="Valid until Dec 2025"
-            icon="checkmark-circle"
             borderColor={colors.tertiary}
-            subtitleColor={colors.tertiary}
           />
         </View>
 
@@ -368,18 +361,26 @@ const styles = StyleSheet.create({
     letterSpacing: -0.3,
   },
   premiumBadge: {
-    backgroundColor: `${colors.primary}15`,
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    borderRadius: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: '#FFF8E1',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
     borderWidth: 1,
-    borderColor: `${colors.primary}25`,
+    borderColor: '#D4A01740',
+    shadowColor: '#D4A017',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 3,
   },
   premiumText: {
-    fontSize: 8,
-    fontWeight: '700',
-    color: colors.primary,
-    letterSpacing: 1,
+    fontSize: 9,
+    fontWeight: '900',
+    color: '#B8860B',
+    letterSpacing: 1.2,
   },
   infoTags: {
     flexDirection: 'row',

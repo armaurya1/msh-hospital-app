@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { router } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Color palette from Stitch design
 const COLORS = {
@@ -150,15 +152,15 @@ export default function DoctorSearchScreen() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleBookAppointment = (doctorId: string) => {
-    console.log('Book appointment with doctor:', doctorId);
+    router.push('/(tabs)/book-appointment');
   };
 
   const handleChat = (doctorId: string) => {
-    console.log('Chat with doctor:', doctorId);
+    router.push('/(tabs)/chat');
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top']}>
       {/* Search Bar */}
       <View style={styles.searchContainer}>
         <View style={styles.searchInputWrapper}>
@@ -223,7 +225,7 @@ export default function DoctorSearchScreen() {
           ))}
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
